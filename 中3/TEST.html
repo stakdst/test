@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>英単語リスト</title>
+    <style>
+        *{margin:0px; padding:0px; font-size:100%; font-weight:normal;}
+        body{background:gray;}
+        main{
+            width:2100px;
+            background:white;
+            /* margin:200px; */
+        }
+        #page{
+            width:2100px;
+            height:2770px;
+            padding:100px 0px;
+
+            position:relative;
+
+            display:flex;
+            flex-direction:column;
+            flex-wrap:wrap;
+            align-content:flex-start;
+        }
+        #question{
+            width:1900px;
+            padding:0px 100px;
+            margin-bottom:20px;
+
+            font-size:40px;
+
+            display:flex;
+        }
+
+        #number     {font-family:"Noto Serif JP Medium"; text-align:right;}
+        #words_En_Ja{font-family:"Century";}
+        #KAITOU     {font-family:"Noto Serif JP Medium"; margin-top:auto; border-bottom:4px solid black;}
+        #Answer     {font-family:"Noto Sans JP Medium" ; margin-top:auto; border-bottom:4px solid black; text-align:center;}
+        #words_En   {font-family:"Century";}
+        #words_Ja   {font-family:"游明朝"; line-height:1.3; display:flex; flex-wrap:wrap;}
+
+        #number     {flex: 0 0  4%; margin-right:1%;}
+        #words_En_Ja{flex: 0 0 65%; margin-right:3%;}
+        #KAITOU     {flex: 0 0 14%; margin-right:2%; padding-left:1%;}
+        #Answer     {flex: 0 0 10%; margin-right:0%;}
+        #words_En   {margin-top:0.5%;}
+        #words_Ja   {margin-top:1.3%;}
+
+        #words_Ja div{margin-right:30px;}
+    </style>
+</head>
+<body>
+<main>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中3</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:1740px; top:120px; font-size:110px; font-family:'Noto Sans JP ExtraBold';">/12</div>
+    <div style="position:absolute; left:1607px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">解答</div>
+    <div style="position:absolute; left:1865px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">答え</div>
+    <div style="position:absolute; left:1790px; top:330px; height:2550px; border:dotted 1px black;"></div>
+    <!-- <div style="position:absolute; left:3890px; top:100px; height:2750px; border:dotted 1px black;"></div> -->
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">1/8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ⓒ Amano</div>
+
+    <div id="question" style="height:290px;"></div>
+
+    <div id="question">
+        <div id="number">Ex.</div>
+        <div id="words_En_Ja">
+            <div id="words_En">apple → banana → strawberry → grape → marron</div>
+            <div id="words_Ja"><div>①ぶどう</div><div>②りんご</div><div>③栗</div><div>④いちご</div><div>⑤ばなな</div></div>
+        </div>
+        <div id="KAITOU">A.&nbsp;&nbsp;2 5 4 1 3</div>
+        <div id="Answer">25413</div>
+    </div>
+
+    <div id="question">
+        <div id="number">1. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">natural gas → have+過去分詞 → nest → bench → salad</div>
+            <div id="words_Ja"><div>&#9312;.天然ガス</div><div>&#9313;.～しました（完了）、 ～したことがある（経験）、ずっと ～ している（継続）</div><div>&#9314;.巣</div><div>&#9315;.サラダ</div><div>&#9316;.ベンチ</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">12354</div>
+    </div>
+    <div id="question">
+        <div id="number">2. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">professional → attend → partner → below zero → look forward to ～ ing</div>
+            <div id="words_Ja"><div>&#9312;.専門の</div><div>&#9313;.出席する</div><div>&#9314;.～するのを楽しみにする</div><div>&#9315;.氷点下</div><div>&#9316;.パートナー</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">12543</div>
+    </div>
+    <div id="question">
+        <div id="number">3. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">hopeless → passion → performance → somewhere → decade</div>
+            <div id="words_Ja"><div>&#9312;.10年間</div><div>&#9313;.どこか</div><div>&#9314;.情熱</div><div>&#9315;.演技</div><div>&#9316;.絶望した</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">53421</div>
+    </div>
+    <div id="question">
+        <div id="number">4. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">prepare → situation → not ～ any more → panel → pop</div>
+            <div id="words_Ja"><div>&#9312;.状況、状態</div><div>&#9313;.パネル</div><div>&#9314;.準備をする</div><div>&#9315;.大衆的な</div><div>&#9316;.もう ～ ない</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">31524</div>
+    </div>
+    <div id="question">
+        <div id="number">5. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">humor → Washington, D.C. → farming → slowly → ancestor</div>
+            <div id="words_Ja"><div>&#9312;.ゆっくりと</div><div>&#9313;.ユーモア</div><div>&#9314;.ワシントンD.C.（米国の首都）</div><div>&#9315;.農業</div><div>&#9316;.先祖</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">23415</div>
+    </div>
+    <div id="question">
+        <div id="number">6. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">senior → equal → content → huge → disagree</div>
+            <div id="words_Ja"><div>&#9312;.年上の</div><div>&#9313;.巨大な</div><div>&#9314;.反対する</div><div>&#9315;.内容、中身</div><div>&#9316;.平等な</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">15423</div>
+    </div>
+    <div id="question">
+        <div id="number">7. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">fit → emergency → heal → timing → softball</div>
+            <div id="words_Ja"><div>&#9312;.タイミング</div><div>&#9313;.（サイズが）合う</div><div>&#9314;.ソフトボール</div><div>&#9315;.をいやす</div><div>&#9316;.緊急事態</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">25413</div>
+    </div>
+    <div id="question">
+        <div id="number">8. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">population → judge → center → research → dot</div>
+            <div id="words_Ja"><div>&#9312;.点</div><div>&#9313;.人口</div><div>&#9314;.中心</div><div>&#9315;.調査</div><div>&#9316;.判断する</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">25341</div>
+    </div>
+    <div id="question">
+        <div id="number">9. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">reporter → nurse's office → fact → tender → statue</div>
+            <div id="words_Ja"><div>&#9312;.やさしい</div><div>&#9313;.保健室</div><div>&#9314;.リポーター</div><div>&#9315;.像</div><div>&#9316;.事実</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">32514</div>
+    </div>
+    <div id="question">
+        <div id="number">10. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">movement → fair → intense → activity → ordinary</div>
+            <div id="words_Ja"><div>&#9312;.動き、運動</div><div>&#9313;.活動</div><div>&#9314;.強烈な</div><div>&#9315;.公正な</div><div>&#9316;.普通の</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">14325</div>
+    </div>
+    <div id="question">
+        <div id="number">11. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">adventure → including → wild → ceiling → weak</div>
+            <div id="words_Ja"><div>&#9312;.弱い</div><div>&#9313;.野生</div><div>&#9314;.冒険</div><div>&#9315;.天井</div><div>&#9316;.含めて</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">35241</div>
+    </div>
+    <div id="question">
+        <div id="number">12. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">border → national → model → southern → windmill</div>
+            <div id="words_Ja"><div>&#9312;.風車</div><div>&#9313;.国の</div><div>&#9314;.南の</div><div>&#9315;.国境</div><div>&#9316;.模型の</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">42531</div>
+    </div>
+<!-- QUESTION ADDITION -->
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中3</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:1740px; top:120px; font-size:110px; font-family:'Noto Sans JP ExtraBold';">/12</div>
+    <div style="position:absolute; left:1607px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">解答</div>
+    <div style="position:absolute; left:1865px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">答え</div>
+    <div style="position:absolute; left:1790px; top:330px; height:2550px; border:dotted 1px black;"></div>
+    <!-- <div style="position:absolute; left:3890px; top:100px; height:2750px; border:dotted 1px black;"></div> -->
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">2/8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ⓒ Amano</div>
+
+    <div id="question" style="height:290px;"></div>
+
+    <div id="question">
+        <div id="number">Ex.</div>
+        <div id="words_En_Ja">
+            <div id="words_En">apple → banana → strawberry → grape → marron</div>
+            <div id="words_Ja"><div>①ぶどう</div><div>②りんご</div><div>③栗</div><div>④いちご</div><div>⑤ばなな</div></div>
+        </div>
+        <div id="KAITOU">A.&nbsp;&nbsp;2 5 4 1 3</div>
+        <div id="Answer">25413</div>
+    </div>
+
+    <div id="question">
+        <div id="number">1. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">Would you like ～ ? → reply → complain → paper crane → shine</div>
+            <div id="words_Ja"><div>&#9312;.折り鶴</div><div>&#9313;.～はいかがですか？</div><div>&#9314;.と答える</div><div>&#9315;.光る</div><div>&#9316;.不平を言う</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">23514</div>
+    </div>
+    <div id="question">
+        <div id="number">2. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">comment → blueberry → habitat → artist → shyness</div>
+            <div id="words_Ja"><div>&#9312;.コメント</div><div>&#9313;.ブルーベリー</div><div>&#9314;.生息地</div><div>&#9315;.芸術家</div><div>&#9316;.恥ずかしがり</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">12345</div>
+    </div>
+    <div id="question">
+        <div id="number">3. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">circle → ambulance → faint → separate → death</div>
+            <div id="words_Ja"><div>&#9312;.円</div><div>&#9313;.を分ける</div><div>&#9314;.救急車</div><div>&#9315;.死</div><div>&#9316;.気絶する</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">13524</div>
+    </div>
+    <div id="question">
+        <div id="number">4. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">fate → excellent → meat loaf → fork → skin</div>
+            <div id="words_Ja"><div>&#9312;.ミートローフ</div><div>&#9313;.運命</div><div>&#9314;.素晴らしい</div><div>&#9315;.肌</div><div>&#9316;.フォーク</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">23154</div>
+    </div>
+    <div id="question">
+        <div id="number">5. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">human → lucky break → calmly → symbol → paralyzed</div>
+            <div id="words_Ja"><div>&#9312;.成功のきっかけ</div><div>&#9313;.シンボル</div><div>&#9314;.静かに</div><div>&#9315;.麻痺した</div><div>&#9316;.人</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">51324</div>
+    </div>
+    <div id="question">
+        <div id="number">6. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">Mongolia → increase → technology → worker → conference</div>
+            <div id="words_Ja"><div>&#9312;.増やす</div><div>&#9313;.科学技術</div><div>&#9314;.会議</div><div>&#9315;.モンゴル</div><div>&#9316;.労働者</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">41253</div>
+    </div>
+    <div id="question">
+        <div id="number">7. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">engineering → tightly → lock → habit → effort</div>
+            <div id="words_Ja"><div>&#9312;.しっかりと</div><div>&#9313;.努力</div><div>&#9314;.工学</div><div>&#9315;.を閉じ込める</div><div>&#9316;.習慣</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">31452</div>
+    </div>
+    <div id="question">
+        <div id="number">8. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">craftsperson → square → improve → leader → goods</div>
+            <div id="words_Ja"><div>&#9312;.職人</div><div>&#9313;.向上させる</div><div>&#9314;.商品</div><div>&#9315;.正方形</div><div>&#9316;.リーダー</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">14253</div>
+    </div>
+    <div id="question">
+        <div id="number">9. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">amaze → nobody → organize → southeastern → Korean</div>
+            <div id="words_Ja"><div>&#9312;.南東の</div><div>&#9313;.組織する</div><div>&#9314;.をびっくりさせる</div><div>&#9315;.だれも～ない</div><div>&#9316;.韓国の</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">34215</div>
+    </div>
+    <div id="question">
+        <div id="number">10. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">yogurt → eyesight → call A B → trap → shut</div>
+            <div id="words_Ja"><div>&#9312;.ヨーグルト</div><div>&#9313;.視力</div><div>&#9314;.ＡをＢと呼ぶ</div><div>&#9315;.閉める</div><div>&#9316;.を罠で捕まえる</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">12354</div>
+    </div>
+    <div id="question">
+        <div id="number">11. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">former → release → base → shock → ahead</div>
+            <div id="words_Ja"><div>&#9312;.～の前の方に</div><div>&#9313;.（ＣＤを）発売する</div><div>&#9314;.前の</div><div>&#9315;.ショック、衝撃</div><div>&#9316;.基礎</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">32541</div>
+    </div>
+    <div id="question">
+        <div id="number">12. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">happiness → result → kill → manner → melt</div>
+            <div id="words_Ja"><div>&#9312;.幸福</div><div>&#9313;.マナー</div><div>&#9314;.結果</div><div>&#9315;.溶ける</div><div>&#9316;.を殺す</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">13524</div>
+    </div>
+<!-- QUESTION ADDITION -->
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中3</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:1740px; top:120px; font-size:110px; font-family:'Noto Sans JP ExtraBold';">/12</div>
+    <div style="position:absolute; left:1607px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">解答</div>
+    <div style="position:absolute; left:1865px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">答え</div>
+    <div style="position:absolute; left:1790px; top:330px; height:2550px; border:dotted 1px black;"></div>
+    <!-- <div style="position:absolute; left:3890px; top:100px; height:2750px; border:dotted 1px black;"></div> -->
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">3/8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ⓒ Amano</div>
+
+    <div id="question" style="height:290px;"></div>
+
+    <div id="question">
+        <div id="number">Ex.</div>
+        <div id="words_En_Ja">
+            <div id="words_En">apple → banana → strawberry → grape → marron</div>
+            <div id="words_Ja"><div>①ぶどう</div><div>②りんご</div><div>③栗</div><div>④いちご</div><div>⑤ばなな</div></div>
+        </div>
+        <div id="KAITOU">A.&nbsp;&nbsp;2 5 4 1 3</div>
+        <div id="Answer">25413</div>
+    </div>
+
+    <div id="question">
+        <div id="number">1. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">total → national holiday → depend → by myself → surround</div>
+            <div id="words_Ja"><div>&#9312;.国民の休日</div><div>&#9313;.を囲む</div><div>&#9314;.～による、～しだいである</div><div>&#9315;.私ひとりで</div><div>&#9316;.合計</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">51342</div>
+    </div>
+    <div id="question">
+        <div id="number">2. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">not ～ at all → efficient → dark → Would you ～ ？ → cave</div>
+            <div id="words_Ja"><div>&#9312;.暗い</div><div>&#9313;.効率的な</div><div>&#9314;.～してくれませんか？</div><div>&#9315;.完全に～でない</div><div>&#9316;.洞窟</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">42135</div>
+    </div>
+    <div id="question">
+        <div id="number">3. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">phrase → shade → atomic bomb → smog → calligraphy</div>
+            <div id="words_Ja"><div>&#9312;.陰</div><div>&#9313;.原子爆弾</div><div>&#9314;.スモッグ</div><div>&#9315;.言い回し</div><div>&#9316;.書道</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">41235</div>
+    </div>
+    <div id="question">
+        <div id="number">4. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">origin → fascinate → successful → smell → Japanese-Brazilian</div>
+            <div id="words_Ja"><div>&#9312;.起源</div><div>&#9313;.魅了する</div><div>&#9314;.日系ブラジル人</div><div>&#9315;.成功した</div><div>&#9316;.のにおいがする、におい</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">12453</div>
+    </div>
+    <div id="question">
+        <div id="number">5. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">scientist → contact → connection → make A B → upset</div>
+            <div id="words_Ja"><div>&#9312;.ＡをＢにする</div><div>&#9313;.あわてた</div><div>&#9314;.科学者</div><div>&#9315;.接続</div><div>&#9316;.連絡する、接続する</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">35412</div>
+    </div>
+    <div id="question">
+        <div id="number">6. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">atomic → Asia → heater → price → trade</div>
+            <div id="words_Ja"><div>&#9312;.値段</div><div>&#9313;.アジア</div><div>&#9314;.原子力の</div><div>&#9315;.暖房器具</div><div>&#9316;.貿易</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">32415</div>
+    </div>
+    <div id="question">
+        <div id="number">7. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">tradition → rhythm → since → allow → express</div>
+            <div id="words_Ja"><div>&#9312;.伝統</div><div>&#9313;.～以来ずっと</div><div>&#9314;.リズム</div><div>&#9315;.を許可する</div><div>&#9316;.表現する、急行列車</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">13245</div>
+    </div>
+    <div id="question">
+        <div id="number">8. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">celebrate → various → professor → honesty → England</div>
+            <div id="words_Ja"><div>&#9312;.正直な</div><div>&#9313;.教授</div><div>&#9314;.イングランド</div><div>&#9315;.様々な</div><div>&#9316;.を祝う</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">54213</div>
+    </div>
+    <div id="question">
+        <div id="number">9. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">reality → government → chess → firework → unicycle</div>
+            <div id="words_Ja"><div>&#9312;.チェス</div><div>&#9313;.花火</div><div>&#9314;.政府</div><div>&#9315;.一輪車</div><div>&#9316;.現実</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">53124</div>
+    </div>
+    <div id="question">
+        <div id="number">10. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">such A as B → chimney → toward → positive → deep</div>
+            <div id="words_Ja"><div>&#9312;.～の方へ</div><div>&#9313;.積極的な</div><div>&#9314;.深い</div><div>&#9315;.BようなA</div><div>&#9316;.煙突</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">45123</div>
+    </div>
+    <div id="question">
+        <div id="number">11. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">arrest → wire → keep A in mind → mommy → be surprised at</div>
+            <div id="words_Ja"><div>&#9312;.ワイヤー</div><div>&#9313;.お母ちゃん</div><div>&#9314;.逮捕する</div><div>&#9315;.Aを心に留めておく</div><div>&#9316;.に驚いている</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">31425</div>
+    </div>
+    <div id="question">
+        <div id="number">12. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">period → fossil fuel → notice → sneaker → sofa</div>
+            <div id="words_Ja"><div>&#9312;.ソファー</div><div>&#9313;.スニーカー</div><div>&#9314;.時代</div><div>&#9315;.気がつく</div><div>&#9316;.化石燃料</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">35421</div>
+    </div>
+<!-- QUESTION ADDITION -->
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中3</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:1740px; top:120px; font-size:110px; font-family:'Noto Sans JP ExtraBold';">/12</div>
+    <div style="position:absolute; left:1607px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">解答</div>
+    <div style="position:absolute; left:1865px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">答え</div>
+    <div style="position:absolute; left:1790px; top:330px; height:2550px; border:dotted 1px black;"></div>
+    <!-- <div style="position:absolute; left:3890px; top:100px; height:2750px; border:dotted 1px black;"></div> -->
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">4/8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ⓒ Amano</div>
+
+    <div id="question" style="height:290px;"></div>
+
+    <div id="question">
+        <div id="number">Ex.</div>
+        <div id="words_En_Ja">
+            <div id="words_En">apple → banana → strawberry → grape → marron</div>
+            <div id="words_Ja"><div>①ぶどう</div><div>②りんご</div><div>③栗</div><div>④いちご</div><div>⑤ばなな</div></div>
+        </div>
+        <div id="KAITOU">A.&nbsp;&nbsp;2 5 4 1 3</div>
+        <div id="Answer">25413</div>
+    </div>
+
+    <div id="question">
+        <div id="number">1. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">trust → Canberra → wrap → coach → thinking</div>
+            <div id="words_Ja"><div>&#9312;.考え</div><div>&#9313;.を信頼する</div><div>&#9314;.包む</div><div>&#9315;.コーチ</div><div>&#9316;.キャンベラ（オーストラリアの首都）</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">25341</div>
+    </div>
+    <div id="question">
+        <div id="number">2. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">marry → principal's office → enter → act → joke</div>
+            <div id="words_Ja"><div>&#9312;.校長室</div><div>&#9313;.結婚する</div><div>&#9314;.演じる</div><div>&#9315;.冗談</div><div>&#9316;.に入る</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">21534</div>
+    </div>
+    <div id="question">
+        <div id="number">3. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">area → skillful → past → camp → spoon</div>
+            <div id="words_Ja"><div>&#9312;.場所</div><div>&#9313;.熟練した</div><div>&#9314;.スプーン</div><div>&#9315;.キャンプをする</div><div>&#9316;.過去</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">12543</div>
+    </div>
+    <div id="question">
+        <div id="number">4. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">bear → dead → against → prize → memorial</div>
+            <div id="words_Ja"><div>&#9312;.賞</div><div>&#9313;.クマ</div><div>&#9314;.記念の</div><div>&#9315;.死んだ</div><div>&#9316;.に反対して</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">24513</div>
+    </div>
+    <div id="question">
+        <div id="number">5. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">exhibition → manga → survive → living → gather</div>
+            <div id="words_Ja"><div>&#9312;.マンガ</div><div>&#9313;.を集める</div><div>&#9314;.展覧会</div><div>&#9315;.生きている</div><div>&#9316;.生き残る</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">31542</div>
+    </div>
+    <div id="question">
+        <div id="number">6. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">herself → difficulty → advertisement → tragedy → recognize</div>
+            <div id="words_Ja"><div>&#9312;.広告</div><div>&#9313;.を認める、認識する</div><div>&#9314;.彼女自身</div><div>&#9315;.困難</div><div>&#9316;.悲劇</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">34152</div>
+    </div>
+    <div id="question">
+        <div id="number">7. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">instead → lullaby → childhood → success → realize</div>
+            <div id="words_Ja"><div>&#9312;.実感する、理解する</div><div>&#9313;.幼少時代</div><div>&#9314;.成功</div><div>&#9315;.そのかわりに</div><div>&#9316;.子守歌</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">45231</div>
+    </div>
+    <div id="question">
+        <div id="number">8. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">would like to do → harvest → be scared of → difference → carport</div>
+            <div id="words_Ja"><div>&#9312;.がこわい</div><div>&#9313;.収穫</div><div>&#9314;.違い</div><div>&#9315;.～したい</div><div>&#9316;.車庫</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">42135</div>
+    </div>
+    <div id="question">
+        <div id="number">9. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">ham → theme → themselves → wrestling → not only A but also B</div>
+            <div id="words_Ja"><div>&#9312;.ハム</div><div>&#9313;.彼ら自身,彼女ら自身</div><div>&#9314;.A だけでなくBも</div><div>&#9315;.主題</div><div>&#9316;.レスリング</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">14253</div>
+    </div>
+    <div id="question">
+        <div id="number">10. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">whale → victory → evacuation → pressure → seem</div>
+            <div id="words_Ja"><div>&#9312;.勝利</div><div>&#9313;.圧力、プレッシャー</div><div>&#9314;.避難</div><div>&#9315;.クジラ</div><div>&#9316;.～のように見える</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">41325</div>
+    </div>
+    <div id="question">
+        <div id="number">11. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">Korea → responsible → entrance → photographer → shoot</div>
+            <div id="words_Ja"><div>&#9312;.入り口</div><div>&#9313;.韓国</div><div>&#9314;.を撃つ</div><div>&#9315;.責任を負うべき</div><div>&#9316;.写真家</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">24153</div>
+    </div>
+    <div id="question">
+        <div id="number">12. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">hardship → pond → out of control → attention → support</div>
+            <div id="words_Ja"><div>&#9312;.注意、注目</div><div>&#9313;.制御できない</div><div>&#9314;.支える</div><div>&#9315;.池</div><div>&#9316;.苦難</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">54213</div>
+    </div>
+<!-- QUESTION ADDITION -->
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中3</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:1740px; top:120px; font-size:110px; font-family:'Noto Sans JP ExtraBold';">/12</div>
+    <div style="position:absolute; left:1607px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">解答</div>
+    <div style="position:absolute; left:1865px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">答え</div>
+    <div style="position:absolute; left:1790px; top:330px; height:2550px; border:dotted 1px black;"></div>
+    <!-- <div style="position:absolute; left:3890px; top:100px; height:2750px; border:dotted 1px black;"></div> -->
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">5/8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ⓒ Amano</div>
+
+    <div id="question" style="height:290px;"></div>
+
+    <div id="question">
+        <div id="number">Ex.</div>
+        <div id="words_En_Ja">
+            <div id="words_En">apple → banana → strawberry → grape → marron</div>
+            <div id="words_Ja"><div>①ぶどう</div><div>②りんご</div><div>③栗</div><div>④いちご</div><div>⑤ばなな</div></div>
+        </div>
+        <div id="KAITOU">A.&nbsp;&nbsp;2 5 4 1 3</div>
+        <div id="Answer">25413</div>
+    </div>
+
+    <div id="question">
+        <div id="number">1. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">prince → lie → incredibly → mind → outlook</div>
+            <div id="words_Ja"><div>&#9312;.横になる、嘘をつく</div><div>&#9313;.王子</div><div>&#9314;.心</div><div>&#9315;.見方、考え方</div><div>&#9316;.信じられない</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">21534</div>
+    </div>
+    <div id="question">
+        <div id="number">2. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">France → perfectly → unfair → law → acid rain</div>
+            <div id="words_Ja"><div>&#9312;.不公平な</div><div>&#9313;.酸性雨</div><div>&#9314;.完全に</div><div>&#9315;.フランス</div><div>&#9316;.法律</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">43152</div>
+    </div>
+    <div id="question">
+        <div id="number">3. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">possible → It is A for (人) to do → cross → sock → airport</div>
+            <div id="words_Ja"><div>&#9312;.可能な</div><div>&#9313;.空港</div><div>&#9314;.を横切る</div><div>&#9315;.くつ下</div><div>&#9316;.(人) にとって ～ するのは A だ</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">15342</div>
+    </div>
+    <div id="question">
+        <div id="number">4. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">hunt → cheerfully → ring → be able to → survival</div>
+            <div id="words_Ja"><div>&#9312;.鳴る</div><div>&#9313;.狩りをする</div><div>&#9314;.生き残ること</div><div>&#9315;.することができる</div><div>&#9316;.元気よく、楽しそうに</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">25143</div>
+    </div>
+    <div id="question">
+        <div id="number">5. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">quite → importance → assist → type → select</div>
+            <div id="words_Ja"><div>&#9312;.選ぶ</div><div>&#9313;.助ける、手伝う</div><div>&#9314;.型、種類</div><div>&#9315;.大切さ</div><div>&#9316;.とても</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">54231</div>
+    </div>
+    <div id="question">
+        <div id="number">6. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">drinking fountain → perhaps → sickness → non-white → cacao</div>
+            <div id="words_Ja"><div>&#9312;.カカオ</div><div>&#9313;.たぶん</div><div>&#9314;.白人以外の人</div><div>&#9315;.病気</div><div>&#9316;.水飲み場</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">52431</div>
+    </div>
+    <div id="question">
+        <div id="number">7. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">justice → beauty → among → waste → swallow</div>
+            <div id="words_Ja"><div>&#9312;.正義</div><div>&#9313;.浪費</div><div>&#9314;.美しさ</div><div>&#9315;.をごくりと飲み込む</div><div>&#9316;.の間に</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">13524</div>
+    </div>
+    <div id="question">
+        <div id="number">8. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">score → struggle → pair → knit → be based on</div>
+            <div id="words_Ja"><div>&#9312;.得点する</div><div>&#9313;.ペア</div><div>&#9314;.編み物をする</div><div>&#9315;.もがく</div><div>&#9316;.に基づく</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">14235</div>
+    </div>
+    <div id="question">
+        <div id="number">9. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">attitude → discover → map → developing country → north</div>
+            <div id="words_Ja"><div>&#9312;.態度、考え方、見方</div><div>&#9313;.発展途上国</div><div>&#9314;.地図</div><div>&#9315;.北</div><div>&#9316;.を見つける</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">15324</div>
+    </div>
+    <div id="question">
+        <div id="number">10. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">oxygen → wilderness → already → count → broaden</div>
+            <div id="words_Ja"><div>&#9312;.すでに、もう</div><div>&#9313;.荒野</div><div>&#9314;.酸素</div><div>&#9315;.を数える</div><div>&#9316;.を広げる</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">32145</div>
+    </div>
+    <div id="question">
+        <div id="number">11. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">wish → teachers' room → democracy → fireplace → destroy</div>
+            <div id="words_Ja"><div>&#9312;.職員室</div><div>&#9313;.破壊する</div><div>&#9314;.暖炉</div><div>&#9315;.民主主義</div><div>&#9316;.を願う</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">51432</div>
+    </div>
+    <div id="question">
+        <div id="number">12. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">graduate → produce → for a while → calm → ship</div>
+            <div id="words_Ja"><div>&#9312;.落ち着いた</div><div>&#9313;.卒業する</div><div>&#9314;.船</div><div>&#9315;.を生産する</div><div>&#9316;.しばらくの間</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">24513</div>
+    </div>
+<!-- QUESTION ADDITION -->
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中3</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:1740px; top:120px; font-size:110px; font-family:'Noto Sans JP ExtraBold';">/12</div>
+    <div style="position:absolute; left:1607px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">解答</div>
+    <div style="position:absolute; left:1865px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">答え</div>
+    <div style="position:absolute; left:1790px; top:330px; height:2550px; border:dotted 1px black;"></div>
+    <!-- <div style="position:absolute; left:3890px; top:100px; height:2750px; border:dotted 1px black;"></div> -->
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">6/8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ⓒ Amano</div>
+
+    <div id="question" style="height:290px;"></div>
+
+    <div id="question">
+        <div id="number">Ex.</div>
+        <div id="words_En_Ja">
+            <div id="words_En">apple → banana → strawberry → grape → marron</div>
+            <div id="words_Ja"><div>①ぶどう</div><div>②りんご</div><div>③栗</div><div>④いちご</div><div>⑤ばなな</div></div>
+        </div>
+        <div id="KAITOU">A.&nbsp;&nbsp;2 5 4 1 3</div>
+        <div id="Answer">25413</div>
+    </div>
+
+    <div id="question">
+        <div id="number">1. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">ever → pull → anyway → bicycle → skill</div>
+            <div id="words_Ja"><div>&#9312;.自転車</div><div>&#9313;.とにかく</div><div>&#9314;.を引く</div><div>&#9315;.技術</div><div>&#9316;.（疑・否）今まで</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">53214</div>
+    </div>
+    <div id="question">
+        <div id="number">2. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">German → bamboo → apartment → mayor → industry</div>
+            <div id="words_Ja"><div>&#9312;.アパート</div><div>&#9313;.工業</div><div>&#9314;.竹</div><div>&#9315;.村長</div><div>&#9316;.ドイツの</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">53142</div>
+    </div>
+    <div id="question">
+        <div id="number">3. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">stringed instrument → for a long time → myself → name A B → courage</div>
+            <div id="words_Ja"><div>&#9312;.勇気</div><div>&#9313;.長い間</div><div>&#9314;.私自身</div><div>&#9315;.弦楽器</div><div>&#9316;.ＡをＢと名づける</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">42351</div>
+    </div>
+    <div id="question">
+        <div id="number">4. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">tear → advantage → cell phone → suburb → high school</div>
+            <div id="words_Ja"><div>&#9312;.郊外</div><div>&#9313;.高等学校</div><div>&#9314;.涙</div><div>&#9315;.携帯電話</div><div>&#9316;.利点</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">35412</div>
+    </div>
+    <div id="question">
+        <div id="number">5. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">slump → spell → million → creativity → South Africa</div>
+            <div id="words_Ja"><div>&#9312;.をつづる</div><div>&#9313;.不調、スランプ</div><div>&#9314;.創造性</div><div>&#9315;.100万</div><div>&#9316;.南アフリカ共和国</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">21435</div>
+    </div>
+    <div id="question">
+        <div id="number">6. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">stiff → goodness → department store → gate → Ghana</div>
+            <div id="words_Ja"><div>&#9312;.デパート</div><div>&#9313;.門</div><div>&#9314;.良さ、親切</div><div>&#9315;.ガーナ</div><div>&#9316;.かたい</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">53124</div>
+    </div>
+    <div id="question">
+        <div id="number">7. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">generation → strive → overcome → grass → furniture</div>
+            <div id="words_Ja"><div>&#9312;.家具</div><div>&#9313;.打ち勝つ、克服する</div><div>&#9314;.草</div><div>&#9315;.世代</div><div>&#9316;.懸命に努力する</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">45231</div>
+    </div>
+    <div id="question">
+        <div id="number">8. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">United Nations → Spain → depressed → remind → vast</div>
+            <div id="words_Ja"><div>&#9312;.広大な</div><div>&#9313;.スペイン</div><div>&#9314;.ガッカリした</div><div>&#9315;.思い出させる</div><div>&#9316;.国際連合</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">52341</div>
+    </div>
+    <div id="question">
+        <div id="number">9. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">attract → perform → rainbow → decision → costume</div>
+            <div id="words_Ja"><div>&#9312;.虹</div><div>&#9313;.引き付ける</div><div>&#9314;.服装</div><div>&#9315;.決断</div><div>&#9316;.演じる</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">25143</div>
+    </div>
+    <div id="question">
+        <div id="number">10. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">lamp → sun flower → photograph → tour → diary</div>
+            <div id="words_Ja"><div>&#9312;.旅行</div><div>&#9313;.ひまわり</div><div>&#9314;.日記</div><div>&#9315;.ランプ</div><div>&#9316;.写真</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">42513</div>
+    </div>
+    <div id="question">
+        <div id="number">11. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">guide → exactly → elementary → bubble → hug</div>
+            <div id="words_Ja"><div>&#9312;.抱きしめる</div><div>&#9313;.泡</div><div>&#9314;.その通りです</div><div>&#9315;.基本的な</div><div>&#9316;.ガイド</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">53421</div>
+    </div>
+    <div id="question">
+        <div id="number">12. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">album → butter → driftwood → nor → farm</div>
+            <div id="words_Ja"><div>&#9312;.バター</div><div>&#9313;.～でも…でもない</div><div>&#9314;.農場</div><div>&#9315;.流木</div><div>&#9316;.アルバム</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">51423</div>
+    </div>
+<!-- QUESTION ADDITION -->
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中3</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:1740px; top:120px; font-size:110px; font-family:'Noto Sans JP ExtraBold';">/12</div>
+    <div style="position:absolute; left:1607px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">解答</div>
+    <div style="position:absolute; left:1865px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">答え</div>
+    <div style="position:absolute; left:1790px; top:330px; height:2550px; border:dotted 1px black;"></div>
+    <!-- <div style="position:absolute; left:3890px; top:100px; height:2750px; border:dotted 1px black;"></div> -->
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">7/8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ⓒ Amano</div>
+
+    <div id="question" style="height:290px;"></div>
+
+    <div id="question">
+        <div id="number">Ex.</div>
+        <div id="words_En_Ja">
+            <div id="words_En">apple → banana → strawberry → grape → marron</div>
+            <div id="words_Ja"><div>①ぶどう</div><div>②りんご</div><div>③栗</div><div>④いちご</div><div>⑤ばなな</div></div>
+        </div>
+        <div id="KAITOU">A.&nbsp;&nbsp;2 5 4 1 3</div>
+        <div id="Answer">25413</div>
+    </div>
+
+    <div id="question">
+        <div id="number">1. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">leopard → cheer → northern → poem → introduce</div>
+            <div id="words_Ja"><div>&#9312;.元気づける、応援する</div><div>&#9313;.詩</div><div>&#9314;.北部の</div><div>&#9315;.ヒョウ</div><div>&#9316;.紹介する</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">41325</div>
+    </div>
+    <div id="question">
+        <div id="number">2. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">hill → fulfill → quit → create → marsh</div>
+            <div id="words_Ja"><div>&#9312;.を作る</div><div>&#9313;.やめる</div><div>&#9314;.沼</div><div>&#9315;.丘</div><div>&#9316;.実現する</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">45213</div>
+    </div>
+    <div id="question">
+        <div id="number">3. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">peaceful → physically challenged → accept → title → era</div>
+            <div id="words_Ja"><div>&#9312;.題名</div><div>&#9313;.身体に障害のある</div><div>&#9314;.平和な</div><div>&#9315;.受け入れる</div><div>&#9316;.時代</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">32415</div>
+    </div>
+    <div id="question">
+        <div id="number">4. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">political → seed → transportation → one after another → expression</div>
+            <div id="words_Ja"><div>&#9312;.輸送機関</div><div>&#9313;.次々に</div><div>&#9314;.表現</div><div>&#9315;.種</div><div>&#9316;.政治の</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">54123</div>
+    </div>
+    <div id="question">
+        <div id="number">5. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">lawyer → form → maker → strongly → prefecture</div>
+            <div id="words_Ja"><div>&#9312;.製作者</div><div>&#9313;.の形を作る</div><div>&#9314;.弁護士</div><div>&#9315;.強く</div><div>&#9316;.県</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">32145</div>
+    </div>
+    <div id="question">
+        <div id="number">6. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">buzzer → academy → key → champion → carrot</div>
+            <div id="words_Ja"><div>&#9312;.優勝者</div><div>&#9313;.専門学校</div><div>&#9314;.かぎ</div><div>&#9315;.ブザー</div><div>&#9316;.ニンジン</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">42315</div>
+    </div>
+    <div id="question">
+        <div id="number">7. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">pleasure → suffer → translate → elementary school → bomb</div>
+            <div id="words_Ja"><div>&#9312;.喜び</div><div>&#9313;.小学校</div><div>&#9314;.苦しむ</div><div>&#9315;.爆弾</div><div>&#9316;.翻訳する</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">13524</div>
+    </div>
+    <div id="question">
+        <div id="number">8. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">be sold out → nation → scenery → expert → challenge</div>
+            <div id="words_Ja"><div>&#9312;.専門家</div><div>&#9313;.景色</div><div>&#9314;.挑戦</div><div>&#9315;.売り切れた</div><div>&#9316;.国家</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">45213</div>
+    </div>
+    <div id="question">
+        <div id="number">9. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">share → Statue of Liberty → page → teamwork → wooden</div>
+            <div id="words_Ja"><div>&#9312;.自由の女神像</div><div>&#9313;.共有する</div><div>&#9314;.ページ</div><div>&#9315;.木の</div><div>&#9316;.チームワーク</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">21354</div>
+    </div>
+    <div id="question">
+        <div id="number">10. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">freedom → encourage → connect → Finland → despair</div>
+            <div id="words_Ja"><div>&#9312;.絶望する</div><div>&#9313;.自由</div><div>&#9314;.フィンランド</div><div>&#9315;.結びつける、つながる</div><div>&#9316;.励ます</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">25431</div>
+    </div>
+    <div id="question">
+        <div id="number">11. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">roof → demonstration → kick → drill → homeland</div>
+            <div id="words_Ja"><div>&#9312;.デモ、デモンストレーション</div><div>&#9313;.を蹴る</div><div>&#9314;.屋上、屋根</div><div>&#9315;.訓練</div><div>&#9316;.母国</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">31245</div>
+    </div>
+    <div id="question">
+        <div id="number">12. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">business → note → principal → print → float</div>
+            <div id="words_Ja"><div>&#9312;.校長</div><div>&#9313;.商売</div><div>&#9314;.メモ</div><div>&#9315;.山車</div><div>&#9316;.印刷</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">23154</div>
+    </div>
+<!-- QUESTION ADDITION -->
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中3</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:1740px; top:120px; font-size:110px; font-family:'Noto Sans JP ExtraBold';">/12</div>
+    <div style="position:absolute; left:1607px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">解答</div>
+    <div style="position:absolute; left:1865px; top:350px; font-size: 40px; font-family:'Noto Sans JP Medium';">答え</div>
+    <div style="position:absolute; left:1790px; top:330px; height:2550px; border:dotted 1px black;"></div>
+    <!-- <div style="position:absolute; left:3890px; top:100px; height:2750px; border:dotted 1px black;"></div> -->
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">8/8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ⓒ Amano</div>
+
+    <div id="question" style="height:290px;"></div>
+
+    <div id="question">
+        <div id="number">Ex.</div>
+        <div id="words_En_Ja">
+            <div id="words_En">apple → banana → strawberry → grape → marron</div>
+            <div id="words_Ja"><div>①ぶどう</div><div>②りんご</div><div>③栗</div><div>④いちご</div><div>⑤ばなな</div></div>
+        </div>
+        <div id="KAITOU">A.&nbsp;&nbsp;2 5 4 1 3</div>
+        <div id="Answer">25413</div>
+    </div>
+
+    <div id="question">
+        <div id="number">1. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">thin → truly → control → polar bear → condominium</div>
+            <div id="words_Ja"><div>&#9312;.制御</div><div>&#9313;.ホッキョクグマ</div><div>&#9314;.やせた</div><div>&#9315;.本当に</div><div>&#9316;.分譲マンション</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">34125</div>
+    </div>
+    <div id="question">
+        <div id="number">2. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">interest → greenhouse gas → Russia → Myanmar → elderly</div>
+            <div id="words_Ja"><div>&#9312;.温室効果ガス</div><div>&#9313;.高齢の</div><div>&#9314;.ロシア</div><div>&#9315;.ミャンマー</div><div>&#9316;.興味</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">51342</div>
+    </div>
+    <div id="question">
+        <div id="number">3. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">precisely → severe → winner → Rome → soybean</div>
+            <div id="words_Ja"><div>&#9312;.ローマ（イタリアの首都、古代ローマ）</div><div>&#9313;.正確に</div><div>&#9314;.勝者</div><div>&#9315;.大豆</div><div>&#9316;.厳しい</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">25314</div>
+    </div>
+    <div id="question">
+        <div id="number">4. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">horizon → manage → be proud of → karaoke → himself</div>
+            <div id="words_Ja"><div>&#9312;.彼自身</div><div>&#9313;.カラオケ</div><div>&#9314;.に誇りを持っている</div><div>&#9315;.なんとか～する</div><div>&#9316;.視野</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">54321</div>
+    </div>
+    <div id="question">
+        <div id="number">5. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">pale → be +過去分詞 → make up my mind → politician → Roman</div>
+            <div id="words_Ja"><div>&#9312;.決心する</div><div>&#9313;.古代ローマの</div><div>&#9314;.政治家</div><div>&#9315;.顔色の悪い</div><div>&#9316;.～される</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">45132</div>
+    </div>
+    <div id="question">
+        <div id="number">6. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">orchestra → entertainment → necessary → cotton → ridiculous</div>
+            <div id="words_Ja"><div>&#9312;.綿</div><div>&#9313;.オーケストラ</div><div>&#9314;.娯楽</div><div>&#9315;.必要な</div><div>&#9316;.ばかげた</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">23415</div>
+    </div>
+    <div id="question">
+        <div id="number">7. </div>
+        <div id="words_En_Ja">
+            <div id="words_En">in total → rain forest → crane → quiet → impossible</div>
+            <div id="words_Ja"><div>&#9312;.不可能な</div><div>&#9313;.静かな</div><div>&#9314;.熱帯雨林</div><div>&#9315;.合計で</div><div>&#9316;.ツル</div></div>
+        </div>
+        <div id="KAITOU">A.</div>
+        <div id="Answer">43521</div>
+    </div>
+<!-- QUESTION ADDITION -->
+</div>
+<!-- PAGE ADDITION -->
+</main>
+</body>
+</html>
