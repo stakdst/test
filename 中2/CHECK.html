@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>英単語リスト</title>
+    <style>
+        *{margin:0px; padding:0px; font-size:100%; font-weight:normal;}
+        body{background:gray;}
+        main{
+            width:2100px;
+            background:white;
+            /* margin:200px; */
+        }
+        #page{
+            width:2100px;
+            height:2770px;
+            padding:100px 0px;
+
+            position:relative;
+        }
+        #words{
+            width:1900px;
+            height:2480px;
+            padding:290px 100px 0px 100px;
+
+            font-size:40px;
+
+            display:flex;
+            flex-direction:column;
+            flex-wrap:wrap;
+            align-content:flex-start;
+        }
+        .word{width:50%; display:flex;}
+        .word_En{font-family:'Century'; width:40%; text-align:right; line-height:1.5;}
+        .word_Ja{font-family:'游明朝'; width:60%;}
+    </style>
+</head>
+<body>
+<main>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">1/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">subway</div>：<div class="word_Ja">（アメリカの）地下鉄</div></div>
+        <div class="word"><div class="word_En">British</div>：<div class="word_Ja">イギリスの</div></div>
+        <div class="word"><div class="word_En">remove</div>：<div class="word_Ja">取り除く</div></div>
+        <div class="word"><div class="word_En">clock</div>：<div class="word_Ja">時計</div></div>
+        <div class="word"><div class="word_En">banana</div>：<div class="word_Ja">バナナ</div></div>
+        <div class="word"><div class="word_En">impress</div>：<div class="word_Ja">感動させる</div></div>
+        <div class="word"><div class="word_En">mystery</div>：<div class="word_Ja">謎</div></div>
+        <div class="word"><div class="word_En">top</div>：<div class="word_Ja">一番上、頂上</div></div>
+        <div class="word"><div class="word_En">schedule</div>：<div class="word_Ja">予定</div></div>
+        <div class="word"><div class="word_En">narrow</div>：<div class="word_Ja">せまい</div></div>
+        <div class="word"><div class="word_En">cut</div>：<div class="word_Ja">を切る</div></div>
+        <div class="word"><div class="word_En">slow</div>：<div class="word_Ja">ゆっくりな</div></div>
+        <div class="word"><div class="word_En">interview</div>：<div class="word_Ja">インタビュー</div></div>
+        <div class="word"><div class="word_En">in front of</div>：<div class="word_Ja">の前</div></div>
+        <div class="word"><div class="word_En">century</div>：<div class="word_Ja">世紀</div></div>
+        <div class="word"><div class="word_En">poor</div>：<div class="word_Ja">貧しい</div></div>
+        <div class="word"><div class="word_En">mirror</div>：<div class="word_Ja">鏡</div></div>
+        <div class="word"><div class="word_En">beef</div>：<div class="word_Ja">牛肉</div></div>
+        <div class="word"><div class="word_En">carefully</div>：<div class="word_Ja">注意深く</div></div>
+        <div class="word"><div class="word_En">sunny</div>：<div class="word_Ja">晴れた</div></div>
+        <div class="word"><div class="word_En">insult</div>：<div class="word_Ja">屈辱</div></div>
+        <div class="word"><div class="word_En">twice</div>：<div class="word_Ja">2回</div></div>
+        <div class="word"><div class="word_En">Cambodia</div>：<div class="word_Ja">カンボジア</div></div>
+        <div class="word"><div class="word_En">kitchen</div>：<div class="word_Ja">台所</div></div>
+        <div class="word"><div class="word_En">plan</div>：<div class="word_Ja">計画</div></div>
+        <div class="word"><div class="word_En">least</div>：<div class="word_Ja">最も少ない、littleの最上級</div></div>
+        <div class="word"><div class="word_En">snake</div>：<div class="word_Ja">へび</div></div>
+        <div class="word"><div class="word_En">theater</div>：<div class="word_Ja">映画館</div></div>
+        <div class="word"><div class="word_En">dolphin</div>：<div class="word_Ja">イルカ</div></div>
+        <div class="word"><div class="word_En">meal</div>：<div class="word_Ja">食事</div></div>
+        <div class="word"><div class="word_En">brightness</div>：<div class="word_Ja">明るさ</div></div>
+        <div class="word"><div class="word_En">swimming pool</div>：<div class="word_Ja">水泳プール</div></div>
+        <div class="word"><div class="word_En">dream</div>：<div class="word_Ja">夢</div></div>
+        <div class="word"><div class="word_En">promise</div>：<div class="word_Ja">約束</div></div>
+        <div class="word"><div class="word_En">World Cup</div>：<div class="word_Ja">ワールドカップ</div></div>
+        <div class="word"><div class="word_En">stroller</div>：<div class="word_Ja">ベビーカー</div></div>
+        <div class="word"><div class="word_En">treasure</div>：<div class="word_Ja">宝物</div></div>
+        <div class="word"><div class="word_En">solve</div>：<div class="word_Ja">を解決する</div></div>
+        <div class="word"><div class="word_En">package</div>：<div class="word_Ja">（製品などを）包装する</div></div>
+        <div class="word"><div class="word_En">danger</div>：<div class="word_Ja">危険</div></div>
+        <div class="word"><div class="word_En">air conditioner</div>：<div class="word_Ja">エアコン</div></div>
+        <div class="word"><div class="word_En">scare</div>：<div class="word_Ja">を怖がらせる</div></div>
+        <div class="word"><div class="word_En">cloudy</div>：<div class="word_Ja">曇りの</div></div>
+        <div class="word"><div class="word_En">toy</div>：<div class="word_Ja">おもちゃ</div></div>
+        <div class="word"><div class="word_En">south</div>：<div class="word_Ja">南</div></div>
+        <div class="word"><div class="word_En">everywhere</div>：<div class="word_Ja">どこでも</div></div>
+        <div class="word"><div class="word_En">corner</div>：<div class="word_Ja">道路の曲がり角</div></div>
+        <div class="word"><div class="word_En">company</div>：<div class="word_Ja">会社</div></div>
+        <div class="word"><div class="word_En">plate</div>：<div class="word_Ja">取り皿</div></div>
+        <div class="word"><div class="word_En">catalog</div>：<div class="word_Ja">カタログ</div></div>
+        <div class="word"><div class="word_En">clean energy</div>：<div class="word_Ja">再生可能エネルギー</div></div>
+        <div class="word"><div class="word_En">most</div>：<div class="word_Ja">ほとんどの、最も多い、many,muchの最上級</div></div>
+        <div class="word"><div class="word_En">differently</div>：<div class="word_Ja">異なって</div></div>
+        <div class="word"><div class="word_En">paper</div>：<div class="word_Ja">紙</div></div>
+        <div class="word"><div class="word_En">granddaughter</div>：<div class="word_Ja">孫(女)</div></div>
+        <div class="word"><div class="word_En">rise</div>：<div class="word_Ja">上に上がる</div></div>
+        <div class="word"><div class="word_En">public hall</div>：<div class="word_Ja">公会堂</div></div>
+        <div class="word"><div class="word_En">solar</div>：<div class="word_Ja">太陽の</div></div>
+        <div class="word"><div class="word_En">must</div>：<div class="word_Ja">～しなければならない、 ～に違いない</div></div>
+        <div class="word"><div class="word_En">anytime</div>：<div class="word_Ja">いつでも</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">2/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">percent</div>：<div class="word_Ja">パーセント</div></div>
+        <div class="word"><div class="word_En">supermarket</div>：<div class="word_Ja">スーパーマーケット</div></div>
+        <div class="word"><div class="word_En">opposite</div>：<div class="word_Ja">反対の</div></div>
+        <div class="word"><div class="word_En">quick</div>：<div class="word_Ja">素早い</div></div>
+        <div class="word"><div class="word_En">angry</div>：<div class="word_Ja">怒った</div></div>
+        <div class="word"><div class="word_En">I am afraid ～</div>：<div class="word_Ja">すみませんが</div></div>
+        <div class="word"><div class="word_En">discount</div>：<div class="word_Ja">割引</div></div>
+        <div class="word"><div class="word_En">aboard</div>：<div class="word_Ja">～に乗って</div></div>
+        <div class="word"><div class="word_En">humid</div>：<div class="word_Ja">蒸し暑い</div></div>
+        <div class="word"><div class="word_En">exciting</div>：<div class="word_Ja">わくわくする</div></div>
+        <div class="word"><div class="word_En">nurse</div>：<div class="word_Ja">看護師</div></div>
+        <div class="word"><div class="word_En">garden</div>：<div class="word_Ja">庭</div></div>
+        <div class="word"><div class="word_En">roast</div>：<div class="word_Ja">焼いた</div></div>
+        <div class="word"><div class="word_En">environment</div>：<div class="word_Ja">環境</div></div>
+        <div class="word"><div class="word_En">bury</div>：<div class="word_Ja">埋める</div></div>
+        <div class="word"><div class="word_En">Nobel Peace Prize</div>：<div class="word_Ja">ノーベル平和賞</div></div>
+        <div class="word"><div class="word_En">picnic</div>：<div class="word_Ja">ピクニック、行楽</div></div>
+        <div class="word"><div class="word_En">dome</div>：<div class="word_Ja">ドーム</div></div>
+        <div class="word"><div class="word_En">sculpture</div>：<div class="word_Ja">彫刻</div></div>
+        <div class="word"><div class="word_En">men</div>：<div class="word_Ja">manの複数形</div></div>
+        <div class="word"><div class="word_En">chart</div>：<div class="word_Ja">図表</div></div>
+        <div class="word"><div class="word_En">Italian</div>：<div class="word_Ja">イタリアの</div></div>
+        <div class="word"><div class="word_En">waitress</div>：<div class="word_Ja">ウエイトレス</div></div>
+        <div class="word"><div class="word_En">solar power</div>：<div class="word_Ja">太陽エネルギー</div></div>
+        <div class="word"><div class="word_En">enough</div>：<div class="word_Ja">十分な</div></div>
+        <div class="word"><div class="word_En">everything</div>：<div class="word_Ja">すべての物,事</div></div>
+        <div class="word"><div class="word_En">underground</div>：<div class="word_Ja">地下鉄</div></div>
+        <div class="word"><div class="word_En">snow</div>：<div class="word_Ja">雪</div></div>
+        <div class="word"><div class="word_En">die</div>：<div class="word_Ja">死ぬ</div></div>
+        <div class="word"><div class="word_En">meat</div>：<div class="word_Ja">肉</div></div>
+        <div class="word"><div class="word_En">solar cooker</div>：<div class="word_Ja">ソーラークッカー</div></div>
+        <div class="word"><div class="word_En">career</div>：<div class="word_Ja">職業、経歴</div></div>
+        <div class="word"><div class="word_En">be afraid of</div>：<div class="word_Ja">を恐れる</div></div>
+        <div class="word"><div class="word_En">sunlight</div>：<div class="word_Ja">日光</div></div>
+        <div class="word"><div class="word_En">purpose</div>：<div class="word_Ja">目的</div></div>
+        <div class="word"><div class="word_En">hatred</div>：<div class="word_Ja">憎しみ</div></div>
+        <div class="word"><div class="word_En">give A B</div>：<div class="word_Ja">ＡにＢを与える</div></div>
+        <div class="word"><div class="word_En">stew</div>：<div class="word_Ja">シチュー</div></div>
+        <div class="word"><div class="word_En">castle</div>：<div class="word_Ja">城</div></div>
+        <div class="word"><div class="word_En">Shall we ～ ?</div>：<div class="word_Ja">一緒に ～ しませんか？</div></div>
+        <div class="word"><div class="word_En">disease</div>：<div class="word_Ja">病気</div></div>
+        <div class="word"><div class="word_En">builder</div>：<div class="word_Ja">建造者</div></div>
+        <div class="word"><div class="word_En">ancient</div>：<div class="word_Ja">古代の</div></div>
+        <div class="word"><div class="word_En">anymore</div>：<div class="word_Ja">（否・疑）もう～でない</div></div>
+        <div class="word"><div class="word_En">concert</div>：<div class="word_Ja">コンサート</div></div>
+        <div class="word"><div class="word_En">experience</div>：<div class="word_Ja">経験</div></div>
+        <div class="word"><div class="word_En">shirt</div>：<div class="word_Ja">シャツ</div></div>
+        <div class="word"><div class="word_En">tower</div>：<div class="word_Ja">タワー</div></div>
+        <div class="word"><div class="word_En">feel</div>：<div class="word_Ja">感じる</div></div>
+        <div class="word"><div class="word_En">pilot</div>：<div class="word_Ja">パイロット</div></div>
+        <div class="word"><div class="word_En">postcard</div>：<div class="word_Ja">はがき</div></div>
+        <div class="word"><div class="word_En">abroad</div>：<div class="word_Ja">外国に</div></div>
+        <div class="word"><div class="word_En">locate</div>：<div class="word_Ja">（何かをある場所に）置く</div></div>
+        <div class="word"><div class="word_En">could</div>：<div class="word_Ja">can の過去形</div></div>
+        <div class="word"><div class="word_En">sword</div>：<div class="word_Ja">剣</div></div>
+        <div class="word"><div class="word_En">final</div>：<div class="word_Ja">最後の</div></div>
+        <div class="word"><div class="word_En">test</div>：<div class="word_Ja">試験</div></div>
+        <div class="word"><div class="word_En">mysterious</div>：<div class="word_Ja">不思議な</div></div>
+        <div class="word"><div class="word_En">future</div>：<div class="word_Ja">未来、将来</div></div>
+        <div class="word"><div class="word_En">action</div>：<div class="word_Ja">演技、行動</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">3/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">blackboard</div>：<div class="word_Ja">黒板</div></div>
+        <div class="word"><div class="word_En">direct</div>：<div class="word_Ja">監督をする</div></div>
+        <div class="word"><div class="word_En">homestay</div>：<div class="word_Ja">ホームステイ</div></div>
+        <div class="word"><div class="word_En">designer</div>：<div class="word_Ja">デザイナー</div></div>
+        <div class="word"><div class="word_En">lay</div>：<div class="word_Ja">（卵を）産む</div></div>
+        <div class="word"><div class="word_En">heavy</div>：<div class="word_Ja">重い</div></div>
+        <div class="word"><div class="word_En">shelf</div>：<div class="word_Ja">棚</div></div>
+        <div class="word"><div class="word_En">global warming</div>：<div class="word_Ja">地球温暖化</div></div>
+        <div class="word"><div class="word_En">overseas</div>：<div class="word_Ja">海外</div></div>
+        <div class="word"><div class="word_En">United States</div>：<div class="word_Ja">アメリカ合衆国</div></div>
+        <div class="word"><div class="word_En">influence</div>：<div class="word_Ja">に影響を与える</div></div>
+        <div class="word"><div class="word_En">fence</div>：<div class="word_Ja">垣根</div></div>
+        <div class="word"><div class="word_En">side</div>：<div class="word_Ja">側、横</div></div>
+        <div class="word"><div class="word_En">knock</div>：<div class="word_Ja">ノックする、たたく</div></div>
+        <div class="word"><div class="word_En">Thai</div>：<div class="word_Ja">タイ</div></div>
+        <div class="word"><div class="word_En">condition</div>：<div class="word_Ja">状態</div></div>
+        <div class="word"><div class="word_En">tough</div>：<div class="word_Ja">きつい</div></div>
+        <div class="word"><div class="word_En">war</div>：<div class="word_Ja">戦争</div></div>
+        <div class="word"><div class="word_En">simple</div>：<div class="word_Ja">簡単な</div></div>
+        <div class="word"><div class="word_En">teammate</div>：<div class="word_Ja">チームメイト</div></div>
+        <div class="word"><div class="word_En">choose</div>：<div class="word_Ja">を選ぶ</div></div>
+        <div class="word"><div class="word_En">classic</div>：<div class="word_Ja">古典的な、代表的な</div></div>
+        <div class="word"><div class="word_En">amazing</div>：<div class="word_Ja">驚くべき</div></div>
+        <div class="word"><div class="word_En">maybe</div>：<div class="word_Ja">たぶん</div></div>
+        <div class="word"><div class="word_En">compartment</div>：<div class="word_Ja">もの入れ</div></div>
+        <div class="word"><div class="word_En">land</div>：<div class="word_Ja">着陸する、陸</div></div>
+        <div class="word"><div class="word_En">women</div>：<div class="word_Ja">womanの複数形</div></div>
+        <div class="word"><div class="word_En">tail</div>：<div class="word_Ja">しっぽ</div></div>
+        <div class="word"><div class="word_En">yourself</div>：<div class="word_Ja">あなた自身</div></div>
+        <div class="word"><div class="word_En">director</div>：<div class="word_Ja">監督</div></div>
+        <div class="word"><div class="word_En">kid</div>：<div class="word_Ja">からかう</div></div>
+        <div class="word"><div class="word_En">glove</div>：<div class="word_Ja">手袋</div></div>
+        <div class="word"><div class="word_En">officer</div>：<div class="word_Ja">役人</div></div>
+        <div class="word"><div class="word_En">roll</div>：<div class="word_Ja">巻く</div></div>
+        <div class="word"><div class="word_En">line</div>：<div class="word_Ja">線</div></div>
+        <div class="word"><div class="word_En">hymn</div>：<div class="word_Ja">賛美歌</div></div>
+        <div class="word"><div class="word_En">for example</div>：<div class="word_Ja">たとえば</div></div>
+        <div class="word"><div class="word_En">jungle</div>：<div class="word_Ja">ジャングル</div></div>
+        <div class="word"><div class="word_En">forget</div>：<div class="word_Ja">を忘れる</div></div>
+        <div class="word"><div class="word_En">agree with</div>：<div class="word_Ja">に賛成する</div></div>
+        <div class="word"><div class="word_En">memory</div>：<div class="word_Ja">記憶、思い出</div></div>
+        <div class="word"><div class="word_En">lake</div>：<div class="word_Ja">湖</div></div>
+        <div class="word"><div class="word_En">far away</div>：<div class="word_Ja">遠く離れて</div></div>
+        <div class="word"><div class="word_En">ourselves</div>：<div class="word_Ja">私たち自身</div></div>
+        <div class="word"><div class="word_En">panic</div>：<div class="word_Ja">パニック</div></div>
+        <div class="word"><div class="word_En">Paris</div>：<div class="word_Ja">パリ</div></div>
+        <div class="word"><div class="word_En">hunting</div>：<div class="word_Ja">さがし求めること</div></div>
+        <div class="word"><div class="word_En">hallway</div>：<div class="word_Ja">廊下、通路</div></div>
+        <div class="word"><div class="word_En">without</div>：<div class="word_Ja">～なしで</div></div>
+        <div class="word"><div class="word_En">sightseeing</div>：<div class="word_Ja">観光</div></div>
+        <div class="word"><div class="word_En">bank</div>：<div class="word_Ja">銀行</div></div>
+        <div class="word"><div class="word_En">someone</div>：<div class="word_Ja">だれか</div></div>
+        <div class="word"><div class="word_En">purple</div>：<div class="word_Ja">紫色</div></div>
+        <div class="word"><div class="word_En">health</div>：<div class="word_Ja">健康</div></div>
+        <div class="word"><div class="word_En">poison</div>：<div class="word_Ja">毒</div></div>
+        <div class="word"><div class="word_En">towel</div>：<div class="word_Ja">タオル</div></div>
+        <div class="word"><div class="word_En">cow</div>：<div class="word_Ja">メスの牛</div></div>
+        <div class="word"><div class="word_En">farmer</div>：<div class="word_Ja">農家</div></div>
+        <div class="word"><div class="word_En">in addition to</div>：<div class="word_Ja">に加えて</div></div>
+        <div class="word"><div class="word_En">ride</div>：<div class="word_Ja">に乗る</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">4/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">stage</div>：<div class="word_Ja">舞台</div></div>
+        <div class="word"><div class="word_En">snowy</div>：<div class="word_Ja">雪の</div></div>
+        <div class="word"><div class="word_En">accident</div>：<div class="word_Ja">事故</div></div>
+        <div class="word"><div class="word_En">paint</div>：<div class="word_Ja">を描く</div></div>
+        <div class="word"><div class="word_En">moment</div>：<div class="word_Ja">一瞬</div></div>
+        <div class="word"><div class="word_En">cardboard</div>：<div class="word_Ja">段ボール</div></div>
+        <div class="word"><div class="word_En">vegetable</div>：<div class="word_Ja">野菜</div></div>
+        <div class="word"><div class="word_En">convenient</div>：<div class="word_Ja">便利な</div></div>
+        <div class="word"><div class="word_En">doctor</div>：<div class="word_Ja">医者</div></div>
+        <div class="word"><div class="word_En">deeply</div>：<div class="word_Ja">深く</div></div>
+        <div class="word"><div class="word_En">hurt</div>：<div class="word_Ja">痛む、を傷つける</div></div>
+        <div class="word"><div class="word_En">personal</div>：<div class="word_Ja">個人的な</div></div>
+        <div class="word"><div class="word_En">decide</div>：<div class="word_Ja">決める</div></div>
+        <div class="word"><div class="word_En">toothbrush</div>：<div class="word_Ja">歯ブラシ</div></div>
+        <div class="word"><div class="word_En">raise</div>：<div class="word_Ja">を上げる、（子供を）育てる</div></div>
+        <div class="word"><div class="word_En">get dressed</div>：<div class="word_Ja">服を着る</div></div>
+        <div class="word"><div class="word_En">dining</div>：<div class="word_Ja">食事</div></div>
+        <div class="word"><div class="word_En">day-at-work program</div>：<div class="word_Ja">職業体験プログラム</div></div>
+        <div class="word"><div class="word_En">sumo stable</div>：<div class="word_Ja">相撲部屋</div></div>
+        <div class="word"><div class="word_En">runny</div>：<div class="word_Ja">鼻水が出る</div></div>
+        <div class="word"><div class="word_En">thought</div>：<div class="word_Ja">考え</div></div>
+        <div class="word"><div class="word_En">artificial</div>：<div class="word_Ja">人工の</div></div>
+        <div class="word"><div class="word_En">beside</div>：<div class="word_Ja">～のそばに</div></div>
+        <div class="word"><div class="word_En">indoors</div>：<div class="word_Ja">家の中で</div></div>
+        <div class="word"><div class="word_En">several</div>：<div class="word_Ja">いくつかの</div></div>
+        <div class="word"><div class="word_En">chest</div>：<div class="word_Ja">胸</div></div>
+        <div class="word"><div class="word_En">road</div>：<div class="word_Ja">道路</div></div>
+        <div class="word"><div class="word_En">nursery</div>：<div class="word_Ja">託児所</div></div>
+        <div class="word"><div class="word_En">native</div>：<div class="word_Ja">母国の</div></div>
+        <div class="word"><div class="word_En">palace</div>：<div class="word_Ja">御殿</div></div>
+        <div class="word"><div class="word_En">yet</div>：<div class="word_Ja">もう、まだ</div></div>
+        <div class="word"><div class="word_En">toilet</div>：<div class="word_Ja">トイレ</div></div>
+        <div class="word"><div class="word_En">shake</div>：<div class="word_Ja">を振る</div></div>
+        <div class="word"><div class="word_En">radish</div>：<div class="word_Ja">ハツカダイコン</div></div>
+        <div class="word"><div class="word_En">cost</div>：<div class="word_Ja">（お金）がかかる</div></div>
+        <div class="word"><div class="word_En">grow</div>：<div class="word_Ja">成長する、育てる</div></div>
+        <div class="word"><div class="word_En">garbage</div>：<div class="word_Ja">生ゴミ、ゴミ</div></div>
+        <div class="word"><div class="word_En">latest</div>：<div class="word_Ja">最新の</div></div>
+        <div class="word"><div class="word_En">serious</div>：<div class="word_Ja">マジで、深刻な、重要な</div></div>
+        <div class="word"><div class="word_En">tool</div>：<div class="word_Ja">道具</div></div>
+        <div class="word"><div class="word_En">helpful</div>：<div class="word_Ja">役に立つ</div></div>
+        <div class="word"><div class="word_En">robot</div>：<div class="word_Ja">ロボット</div></div>
+        <div class="word"><div class="word_En">donut</div>：<div class="word_Ja">ドーナツ</div></div>
+        <div class="word"><div class="word_En">speaker</div>：<div class="word_Ja">話す人</div></div>
+        <div class="word"><div class="word_En">World Heritage Site</div>：<div class="word_Ja">世界遺産</div></div>
+        <div class="word"><div class="word_En">believe</div>：<div class="word_Ja">を信じる</div></div>
+        <div class="word"><div class="word_En">stay</div>：<div class="word_Ja">滞在する</div></div>
+        <div class="word"><div class="word_En">ticket</div>：<div class="word_Ja">切符、券</div></div>
+        <div class="word"><div class="word_En">Germany</div>：<div class="word_Ja">ドイツ</div></div>
+        <div class="word"><div class="word_En">upon</div>：<div class="word_Ja">on と同じ意味</div></div>
+        <div class="word"><div class="word_En">money</div>：<div class="word_Ja">お金</div></div>
+        <div class="word"><div class="word_En">neighbor</div>：<div class="word_Ja">隣人</div></div>
+        <div class="word"><div class="word_En">rule</div>：<div class="word_Ja">規則</div></div>
+        <div class="word"><div class="word_En">better</div>：<div class="word_Ja">よりよい、good,wellの比較級</div></div>
+        <div class="word"><div class="word_En">respect</div>：<div class="word_Ja">を尊敬する、尊敬</div></div>
+        <div class="word"><div class="word_En">greeting</div>：<div class="word_Ja">挨拶</div></div>
+        <div class="word"><div class="word_En">design</div>：<div class="word_Ja">設計する</div></div>
+        <div class="word"><div class="word_En">phone call</div>：<div class="word_Ja">電話をかけること</div></div>
+        <div class="word"><div class="word_En">actor</div>：<div class="word_Ja">俳優</div></div>
+        <div class="word"><div class="word_En">powerful</div>：<div class="word_Ja">力強い</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">5/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">hit</div>：<div class="word_Ja">に当たる</div></div>
+        <div class="word"><div class="word_En">reason</div>：<div class="word_Ja">理由</div></div>
+        <div class="word"><div class="word_En">begin</div>：<div class="word_Ja">始める</div></div>
+        <div class="word"><div class="word_En">gift</div>：<div class="word_Ja">贈り物</div></div>
+        <div class="word"><div class="word_En">barrier</div>：<div class="word_Ja">障壁</div></div>
+        <div class="word"><div class="word_En">sacred</div>：<div class="word_Ja">神聖な</div></div>
+        <div class="word"><div class="word_En">sumo wrestler</div>：<div class="word_Ja">力士</div></div>
+        <div class="word"><div class="word_En">aquarium</div>：<div class="word_Ja">水族館</div></div>
+        <div class="word"><div class="word_En">similar</div>：<div class="word_Ja">似ている</div></div>
+        <div class="word"><div class="word_En">daily</div>：<div class="word_Ja">日々の</div></div>
+        <div class="word"><div class="word_En">embarrassed</div>：<div class="word_Ja">恥ずかしい</div></div>
+        <div class="word"><div class="word_En">stationery</div>：<div class="word_Ja">文房具</div></div>
+        <div class="word"><div class="word_En">ink</div>：<div class="word_Ja">インク</div></div>
+        <div class="word"><div class="word_En">whole</div>：<div class="word_Ja">全体の</div></div>
+        <div class="word"><div class="word_En">scary</div>：<div class="word_Ja">これい</div></div>
+        <div class="word"><div class="word_En">wife</div>：<div class="word_Ja">妻</div></div>
+        <div class="word"><div class="word_En">point</div>：<div class="word_Ja">点、要点</div></div>
+        <div class="word"><div class="word_En">search</div>：<div class="word_Ja">さがす</div></div>
+        <div class="word"><div class="word_En">stream</div>：<div class="word_Ja">川</div></div>
+        <div class="word"><div class="word_En">sore</div>：<div class="word_Ja">痛い</div></div>
+        <div class="word"><div class="word_En">forever</div>：<div class="word_Ja">永久に</div></div>
+        <div class="word"><div class="word_En">happen</div>：<div class="word_Ja">起こる</div></div>
+        <div class="word"><div class="word_En">in need</div>：<div class="word_Ja">必要で</div></div>
+        <div class="word"><div class="word_En">minister</div>：<div class="word_Ja">牧師</div></div>
+        <div class="word"><div class="word_En">although</div>：<div class="word_Ja">～だけれど</div></div>
+        <div class="word"><div class="word_En">especially</div>：<div class="word_Ja">特に</div></div>
+        <div class="word"><div class="word_En">Greece</div>：<div class="word_Ja">ギリシャ</div></div>
+        <div class="word"><div class="word_En">sugar</div>：<div class="word_Ja">砂糖</div></div>
+        <div class="word"><div class="word_En">painter</div>：<div class="word_Ja">画家</div></div>
+        <div class="word"><div class="word_En">downstairs</div>：<div class="word_Ja">下の階へ</div></div>
+        <div class="word"><div class="word_En">single</div>：<div class="word_Ja">たったひとつの</div></div>
+        <div class="word"><div class="word_En">part</div>：<div class="word_Ja">一部、役割</div></div>
+        <div class="word"><div class="word_En">toothache</div>：<div class="word_Ja">歯痛</div></div>
+        <div class="word"><div class="word_En">fitting room</div>：<div class="word_Ja">試着室</div></div>
+        <div class="word"><div class="word_En">try to</div>：<div class="word_Ja">しようとする</div></div>
+        <div class="word"><div class="word_En">wonder</div>：<div class="word_Ja">～かなと思う</div></div>
+        <div class="word"><div class="word_En">lift</div>：<div class="word_Ja">持ち上げる</div></div>
+        <div class="word"><div class="word_En">cloud</div>：<div class="word_Ja">雲</div></div>
+        <div class="word"><div class="word_En">air</div>：<div class="word_Ja">空気</div></div>
+        <div class="word"><div class="word_En">reduce</div>：<div class="word_Ja">減らす</div></div>
+        <div class="word"><div class="word_En">site</div>：<div class="word_Ja">場所</div></div>
+        <div class="word"><div class="word_En">drop</div>：<div class="word_Ja">を落とす</div></div>
+        <div class="word"><div class="word_En">convenience store</div>：<div class="word_Ja">コンビニ</div></div>
+        <div class="word"><div class="word_En">sale</div>：<div class="word_Ja">セール</div></div>
+        <div class="word"><div class="word_En">must not</div>：<div class="word_Ja">～するな</div></div>
+        <div class="word"><div class="word_En">cause</div>：<div class="word_Ja">を引き起こす、原因</div></div>
+        <div class="word"><div class="word_En">city hall</div>：<div class="word_Ja">市役所</div></div>
+        <div class="word"><div class="word_En">become</div>：<div class="word_Ja">になる</div></div>
+        <div class="word"><div class="word_En">character</div>：<div class="word_Ja">性格、特徴、登場人物</div></div>
+        <div class="word"><div class="word_En">rainy</div>：<div class="word_Ja">雨の</div></div>
+        <div class="word"><div class="word_En">cheese</div>：<div class="word_Ja">チーズ</div></div>
+        <div class="word"><div class="word_En">perfect</div>：<div class="word_Ja">完全な</div></div>
+        <div class="word"><div class="word_En">hot spring</div>：<div class="word_Ja">温泉</div></div>
+        <div class="word"><div class="word_En">Indian</div>：<div class="word_Ja">インドの</div></div>
+        <div class="word"><div class="word_En">cloth</div>：<div class="word_Ja">布</div></div>
+        <div class="word"><div class="word_En">need to</div>：<div class="word_Ja">～する必要がある</div></div>
+        <div class="word"><div class="word_En">fee</div>：<div class="word_Ja">料金</div></div>
+        <div class="word"><div class="word_En">lead</div>：<div class="word_Ja">導く、繋がる</div></div>
+        <div class="word"><div class="word_En">village</div>：<div class="word_Ja">村</div></div>
+        <div class="word"><div class="word_En">task</div>：<div class="word_Ja">仕事</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">6/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">job</div>：<div class="word_Ja">仕事</div></div>
+        <div class="word"><div class="word_En">audience</div>：<div class="word_Ja">観客</div></div>
+        <div class="word"><div class="word_En">dancer</div>：<div class="word_Ja">ダンサー</div></div>
+        <div class="word"><div class="word_En">flight</div>：<div class="word_Ja">飛行</div></div>
+        <div class="word"><div class="word_En">size</div>：<div class="word_Ja">大きさ、サイズ</div></div>
+        <div class="word"><div class="word_En">presentation</div>：<div class="word_Ja">発表</div></div>
+        <div class="word"><div class="word_En">Please help yourself.</div>：<div class="word_Ja">どうぞご自由にとって食べてください</div></div>
+        <div class="word"><div class="word_En">once</div>：<div class="word_Ja">１度</div></div>
+        <div class="word"><div class="word_En">market</div>：<div class="word_Ja">市場</div></div>
+        <div class="word"><div class="word_En">recycle</div>：<div class="word_Ja">を再利用する</div></div>
+        <div class="word"><div class="word_En">section</div>：<div class="word_Ja">部分</div></div>
+        <div class="word"><div class="word_En">wide</div>：<div class="word_Ja">幅の広い</div></div>
+        <div class="word"><div class="word_En">style</div>：<div class="word_Ja">やり方</div></div>
+        <div class="word"><div class="word_En">stadium</div>：<div class="word_Ja">競技場</div></div>
+        <div class="word"><div class="word_En">rich</div>：<div class="word_Ja">豊かな、金持ちの</div></div>
+        <div class="word"><div class="word_En">cheap</div>：<div class="word_Ja">安い</div></div>
+        <div class="word"><div class="word_En">either A or B</div>：<div class="word_Ja">AかBのどちらか</div></div>
+        <div class="word"><div class="word_En">belong to</div>：<div class="word_Ja">に所属している</div></div>
+        <div class="word"><div class="word_En">lady</div>：<div class="word_Ja">婦人</div></div>
+        <div class="word"><div class="word_En">gas</div>：<div class="word_Ja">ガス</div></div>
+        <div class="word"><div class="word_En">church</div>：<div class="word_Ja">教会</div></div>
+        <div class="word"><div class="word_En">facility</div>：<div class="word_Ja">施設</div></div>
+        <div class="word"><div class="word_En">pamphlet</div>：<div class="word_Ja">パンフレット</div></div>
+        <div class="word"><div class="word_En">break</div>：<div class="word_Ja">壊す</div></div>
+        <div class="word"><div class="word_En">hometown</div>：<div class="word_Ja">故郷</div></div>
+        <div class="word"><div class="word_En">in turn</div>：<div class="word_Ja">代わって今度は</div></div>
+        <div class="word"><div class="word_En">master</div>：<div class="word_Ja">主人</div></div>
+        <div class="word"><div class="word_En">miss</div>：<div class="word_Ja">乗り遅れる、～がいなくて寂しい</div></div>
+        <div class="word"><div class="word_En">endangered animal</div>：<div class="word_Ja">絶滅の危機にひんしている動物</div></div>
+        <div class="word"><div class="word_En">silent</div>：<div class="word_Ja">静かな</div></div>
+        <div class="word"><div class="word_En">ocean</div>：<div class="word_Ja">海</div></div>
+        <div class="word"><div class="word_En">jacket</div>：<div class="word_Ja">上着</div></div>
+        <div class="word"><div class="word_En">convenience</div>：<div class="word_Ja">便利さ</div></div>
+        <div class="word"><div class="word_En">energy</div>：<div class="word_Ja">エネルギー</div></div>
+        <div class="word"><div class="word_En">to do</div>：<div class="word_Ja">～すること、 ～するため、 ～するべき</div></div>
+        <div class="word"><div class="word_En">if</div>：<div class="word_Ja">もし～ならば</div></div>
+        <div class="word"><div class="word_En">limited</div>：<div class="word_Ja">限られた</div></div>
+        <div class="word"><div class="word_En">hall</div>：<div class="word_Ja">～館</div></div>
+        <div class="word"><div class="word_En">oil</div>：<div class="word_Ja">油</div></div>
+        <div class="word"><div class="word_En">Africa</div>：<div class="word_Ja">アフリカ</div></div>
+        <div class="word"><div class="word_En">throat</div>：<div class="word_Ja">のど</div></div>
+        <div class="word"><div class="word_En">driver</div>：<div class="word_Ja">運転手</div></div>
+        <div class="word"><div class="word_En">major</div>：<div class="word_Ja">主要な</div></div>
+        <div class="word"><div class="word_En">chance</div>：<div class="word_Ja">機会、可能性</div></div>
+        <div class="word"><div class="word_En">bump</div>：<div class="word_Ja">でこぼこ</div></div>
+        <div class="word"><div class="word_En">carpenter</div>：<div class="word_Ja">大工</div></div>
+        <div class="word"><div class="word_En">waterfall</div>：<div class="word_Ja">滝</div></div>
+        <div class="word"><div class="word_En">shout</div>：<div class="word_Ja">叫ぶ</div></div>
+        <div class="word"><div class="word_En">quietly</div>：<div class="word_Ja">静かに</div></div>
+        <div class="word"><div class="word_En">contest</div>：<div class="word_Ja">コンテスト</div></div>
+        <div class="word"><div class="word_En">power</div>：<div class="word_Ja">力</div></div>
+        <div class="word"><div class="word_En">need</div>：<div class="word_Ja">が必要である、必要</div></div>
+        <div class="word"><div class="word_En">each</div>：<div class="word_Ja">それぞれ</div></div>
+        <div class="word"><div class="word_En">choice</div>：<div class="word_Ja">選択</div></div>
+        <div class="word"><div class="word_En">soldier</div>：<div class="word_Ja">兵士</div></div>
+        <div class="word"><div class="word_En">a piece of</div>：<div class="word_Ja">１つの</div></div>
+        <div class="word"><div class="word_En">flash</div>：<div class="word_Ja">光、フラッシュ</div></div>
+        <div class="word"><div class="word_En">sadness</div>：<div class="word_Ja">悲しみ</div></div>
+        <div class="word"><div class="word_En">glacier</div>：<div class="word_Ja">氷河</div></div>
+        <div class="word"><div class="word_En">age</div>：<div class="word_Ja">年齢、歳</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">7/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">customer</div>：<div class="word_Ja">客</div></div>
+        <div class="word"><div class="word_En">anime</div>：<div class="word_Ja">アニメ</div></div>
+        <div class="word"><div class="word_En">shampoo</div>：<div class="word_Ja">シャンプー</div></div>
+        <div class="word"><div class="word_En">opinion</div>：<div class="word_Ja">意見</div></div>
+        <div class="word"><div class="word_En">burn</div>：<div class="word_Ja">を燃やす</div></div>
+        <div class="word"><div class="word_En">seat</div>：<div class="word_Ja">席</div></div>
+        <div class="word"><div class="word_En">fade</div>：<div class="word_Ja">消えていく</div></div>
+        <div class="word"><div class="word_En">worse</div>：<div class="word_Ja">より悪い、badの比較級</div></div>
+        <div class="word"><div class="word_En">balloon</div>：<div class="word_Ja">風船</div></div>
+        <div class="word"><div class="word_En">person</div>：<div class="word_Ja">人</div></div>
+        <div class="word"><div class="word_En">scrambled egg</div>：<div class="word_Ja">スクランブルエッグ</div></div>
+        <div class="word"><div class="word_En">even</div>：<div class="word_Ja">～さえ</div></div>
+        <div class="word"><div class="word_En">custom</div>：<div class="word_Ja">習慣</div></div>
+        <div class="word"><div class="word_En">cough</div>：<div class="word_Ja">せき</div></div>
+        <div class="word"><div class="word_En">worst</div>：<div class="word_Ja">最も悪い、badの最上級</div></div>
+        <div class="word"><div class="word_En">level</div>：<div class="word_Ja">レベル</div></div>
+        <div class="word"><div class="word_En">Just a minute.</div>：<div class="word_Ja">ちょっと待ってください</div></div>
+        <div class="word"><div class="word_En">touch</div>：<div class="word_Ja">にさわる</div></div>
+        <div class="word"><div class="word_En">have to</div>：<div class="word_Ja">～しなければならない</div></div>
+        <div class="word"><div class="word_En">community</div>：<div class="word_Ja">地域社会</div></div>
+        <div class="word"><div class="word_En">product</div>：<div class="word_Ja">製品</div></div>
+        <div class="word"><div class="word_En">pound</div>：<div class="word_Ja">ポンド（イギリスの通貨）</div></div>
+        <div class="word"><div class="word_En">bookcase</div>：<div class="word_Ja">本箱</div></div>
+        <div class="word"><div class="word_En">pastry shop</div>：<div class="word_Ja">洋菓子店</div></div>
+        <div class="word"><div class="word_En">outside</div>：<div class="word_Ja">外で</div></div>
+        <div class="word"><div class="word_En">greet</div>：<div class="word_Ja">に挨拶する</div></div>
+        <div class="word"><div class="word_En">impressive</div>：<div class="word_Ja">印象的な</div></div>
+        <div class="word"><div class="word_En">stuff</div>：<div class="word_Ja">もの</div></div>
+        <div class="word"><div class="word_En">sunset</div>：<div class="word_Ja">日の入り</div></div>
+        <div class="word"><div class="word_En">bedroom</div>：<div class="word_Ja">寝室</div></div>
+        <div class="word"><div class="word_En">hate</div>：<div class="word_Ja">を嫌う</div></div>
+        <div class="word"><div class="word_En">imagine</div>：<div class="word_Ja">想像する</div></div>
+        <div class="word"><div class="word_En">magazine</div>：<div class="word_Ja">雑誌</div></div>
+        <div class="word"><div class="word_En">dentist</div>：<div class="word_Ja">歯医者</div></div>
+        <div class="word"><div class="word_En">such</div>：<div class="word_Ja">そのような</div></div>
+        <div class="word"><div class="word_En">injury</div>：<div class="word_Ja">怪我</div></div>
+        <div class="word"><div class="word_En">history</div>：<div class="word_Ja">歴史</div></div>
+        <div class="word"><div class="word_En">neither</div>：<div class="word_Ja">（否）～もまた～ない</div></div>
+        <div class="word"><div class="word_En">world</div>：<div class="word_Ja">世界</div></div>
+        <div class="word"><div class="word_En">board</div>：<div class="word_Ja">板、掲示板</div></div>
+        <div class="word"><div class="word_En">interpreter</div>：<div class="word_Ja">通訳者</div></div>
+        <div class="word"><div class="word_En">fuel</div>：<div class="word_Ja">燃料</div></div>
+        <div class="word"><div class="word_En">until</div>：<div class="word_Ja">までずっと</div></div>
+        <div class="word"><div class="word_En">Shall I ～ ?</div>：<div class="word_Ja">私が ～ しましょうか？</div></div>
+        <div class="word"><div class="word_En">gesture</div>：<div class="word_Ja">ジェスチャー</div></div>
+        <div class="word"><div class="word_En">gas station</div>：<div class="word_Ja">ガソリンスタンド</div></div>
+        <div class="word"><div class="word_En">coat</div>：<div class="word_Ja">コート、上着</div></div>
+        <div class="word"><div class="word_En">temperature</div>：<div class="word_Ja">温度</div></div>
+        <div class="word"><div class="word_En">palm</div>：<div class="word_Ja">手のひら</div></div>
+        <div class="word"><div class="word_En">dinosaur</div>：<div class="word_Ja">恐竜</div></div>
+        <div class="word"><div class="word_En">image</div>：<div class="word_Ja">イメージ、画像</div></div>
+        <div class="word"><div class="word_En">at least</div>：<div class="word_Ja">少なくとも</div></div>
+        <div class="word"><div class="word_En">finally</div>：<div class="word_Ja">最後に</div></div>
+        <div class="word"><div class="word_En">court</div>：<div class="word_Ja">（テニスなどの）コート</div></div>
+        <div class="word"><div class="word_En">prefer</div>：<div class="word_Ja">好む</div></div>
+        <div class="word"><div class="word_En">nervous</div>：<div class="word_Ja">緊張した、神経質な</div></div>
+        <div class="word"><div class="word_En">keep in touch</div>：<div class="word_Ja">連絡をとり続ける</div></div>
+        <div class="word"><div class="word_En">would</div>：<div class="word_Ja">willの過去形</div></div>
+        <div class="word"><div class="word_En">be born</div>：<div class="word_Ja">生まれる</div></div>
+        <div class="word"><div class="word_En">programmer</div>：<div class="word_Ja">プログラマー</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">8/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">warm</div>：<div class="word_Ja">暖かい</div></div>
+        <div class="word"><div class="word_En">universal design</div>：<div class="word_Ja">ユニバーサルデザイン</div></div>
+        <div class="word"><div class="word_En">worth ～ing</div>：<div class="word_Ja">～するだけの価値がある</div></div>
+        <div class="word"><div class="word_En">pay</div>：<div class="word_Ja">支払う</div></div>
+        <div class="word"><div class="word_En">sense</div>：<div class="word_Ja">意味、感覚</div></div>
+        <div class="word"><div class="word_En">turning point</div>：<div class="word_Ja">転機</div></div>
+        <div class="word"><div class="word_En">mistake</div>：<div class="word_Ja">を間違える</div></div>
+        <div class="word"><div class="word_En">middle</div>：<div class="word_Ja">真ん中</div></div>
+        <div class="word"><div class="word_En">conclusion</div>：<div class="word_Ja">結論</div></div>
+        <div class="word"><div class="word_En">shy</div>：<div class="word_Ja">恥ずかしがりな</div></div>
+        <div class="word"><div class="word_En">best</div>：<div class="word_Ja">最もよい、good,wellの最上級</div></div>
+        <div class="word"><div class="word_En">seal</div>：<div class="word_Ja">アザラシ</div></div>
+        <div class="word"><div class="word_En">plant</div>：<div class="word_Ja">植物</div></div>
+        <div class="word"><div class="word_En">surprising</div>：<div class="word_Ja">すばらしい</div></div>
+        <div class="word"><div class="word_En">ending</div>：<div class="word_Ja">終わり</div></div>
+        <div class="word"><div class="word_En">balance</div>：<div class="word_Ja">バランス</div></div>
+        <div class="word"><div class="word_En">mid-1900s</div>：<div class="word_Ja">1900年代半ば</div></div>
+        <div class="word"><div class="word_En">remember</div>：<div class="word_Ja">思い出す、覚えている</div></div>
+        <div class="word"><div class="word_En">hay fever</div>：<div class="word_Ja">花粉症</div></div>
+        <div class="word"><div class="word_En">bread</div>：<div class="word_Ja">パン</div></div>
+        <div class="word"><div class="word_En">sun</div>：<div class="word_Ja">太陽</div></div>
+        <div class="word"><div class="word_En">address</div>：<div class="word_Ja">住所</div></div>
+        <div class="word"><div class="word_En">prop</div>：<div class="word_Ja">小道具</div></div>
+        <div class="word"><div class="word_En">few</div>：<div class="word_Ja">ほとんどない</div></div>
+        <div class="word"><div class="word_En">lesson</div>：<div class="word_Ja">授業</div></div>
+        <div class="word"><div class="word_En">wood</div>：<div class="word_Ja">木</div></div>
+        <div class="word"><div class="word_En">less</div>：<div class="word_Ja">より少ない、littleの比較級</div></div>
+        <div class="word"><div class="word_En">Tanzania</div>：<div class="word_Ja">タンザニア</div></div>
+        <div class="word"><div class="word_En">important</div>：<div class="word_Ja">大切な</div></div>
+        <div class="word"><div class="word_En">cover</div>：<div class="word_Ja">をおおう</div></div>
+        <div class="word"><div class="word_En">kilogram</div>：<div class="word_Ja">キログラム</div></div>
+        <div class="word"><div class="word_En">trouble</div>：<div class="word_Ja">問題</div></div>
+        <div class="word"><div class="word_En">bridge</div>：<div class="word_Ja">橋</div></div>
+        <div class="word"><div class="word_En">loud</div>：<div class="word_Ja">（声,音が）大きい</div></div>
+        <div class="word"><div class="word_En">reuse</div>：<div class="word_Ja">再利用する</div></div>
+        <div class="word"><div class="word_En">expensive</div>：<div class="word_Ja">高価な</div></div>
+        <div class="word"><div class="word_En">common</div>：<div class="word_Ja">普通の、共通の</div></div>
+        <div class="word"><div class="word_En">card</div>：<div class="word_Ja">カード</div></div>
+        <div class="word"><div class="word_En">starvation</div>：<div class="word_Ja">飢餓</div></div>
+        <div class="word"><div class="word_En">bottle</div>：<div class="word_Ja">びん</div></div>
+        <div class="word"><div class="word_En">should</div>：<div class="word_Ja">～するべき</div></div>
+        <div class="word"><div class="word_En">news</div>：<div class="word_Ja">ニュース</div></div>
+        <div class="word"><div class="word_En">suddenly</div>：<div class="word_Ja">突然</div></div>
+        <div class="word"><div class="word_En">bright</div>：<div class="word_Ja">明るい</div></div>
+        <div class="word"><div class="word_En">bother</div>：<div class="word_Ja">じゃまをする</div></div>
+        <div class="word"><div class="word_En">medal</div>：<div class="word_Ja">メダル</div></div>
+        <div class="word"><div class="word_En">each other</div>：<div class="word_Ja">お互い</div></div>
+        <div class="word"><div class="word_En">add</div>：<div class="word_Ja">加える</div></div>
+        <div class="word"><div class="word_En">real</div>：<div class="word_Ja">本当の、本物の</div></div>
+        <div class="word"><div class="word_En">serve</div>：<div class="word_Ja">（テニスなどの）サーブ</div></div>
+        <div class="word"><div class="word_En">smoke</div>：<div class="word_Ja">煙</div></div>
+        <div class="word"><div class="word_En">heat</div>：<div class="word_Ja">温める、熱</div></div>
+        <div class="word"><div class="word_En">round</div>：<div class="word_Ja">丸い</div></div>
+        <div class="word"><div class="word_En">stomach</div>：<div class="word_Ja">おなか</div></div>
+        <div class="word"><div class="word_En">clearly</div>：<div class="word_Ja">はっきりと</div></div>
+        <div class="word"><div class="word_En">useful</div>：<div class="word_Ja">役に立つ</div></div>
+        <div class="word"><div class="word_En">whisper</div>：<div class="word_Ja">ささやく</div></div>
+        <div class="word"><div class="word_En">taste</div>：<div class="word_Ja">味わう、味</div></div>
+        <div class="word"><div class="word_En">public</div>：<div class="word_Ja">公共の</div></div>
+        <div class="word"><div class="word_En">protect</div>：<div class="word_Ja">守る</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">9/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">warrior</div>：<div class="word_Ja">戦士</div></div>
+        <div class="word"><div class="word_En">grandson</div>：<div class="word_Ja">孫息子</div></div>
+        <div class="word"><div class="word_En">boil</div>：<div class="word_Ja">をゆでる、沸騰させる</div></div>
+        <div class="word"><div class="word_En">gold</div>：<div class="word_Ja">金</div></div>
+        <div class="word"><div class="word_En">Thailand</div>：<div class="word_Ja">タイ</div></div>
+        <div class="word"><div class="word_En">actually</div>：<div class="word_Ja">実際に</div></div>
+        <div class="word"><div class="word_En">be going to do</div>：<div class="word_Ja">～ するつもりだ</div></div>
+        <div class="word"><div class="word_En">charity</div>：<div class="word_Ja">慈善、慈善団体</div></div>
+        <div class="word"><div class="word_En">resource</div>：<div class="word_Ja">資源</div></div>
+        <div class="word"><div class="word_En">still</div>：<div class="word_Ja">まだ</div></div>
+        <div class="word"><div class="word_En">east</div>：<div class="word_Ja">東</div></div>
+        <div class="word"><div class="word_En">French</div>：<div class="word_Ja">フランスの</div></div>
+        <div class="word"><div class="word_En">across</div>：<div class="word_Ja">の向こうに、を横切って、～中（じゅう）に</div></div>
+        <div class="word"><div class="word_En">volume</div>：<div class="word_Ja">～巻</div></div>
+        <div class="word"><div class="word_En">natural</div>：<div class="word_Ja">普通の</div></div>
+        <div class="word"><div class="word_En">information</div>：<div class="word_Ja">情報</div></div>
+        <div class="word"><div class="word_En">chorus</div>：<div class="word_Ja">合唱</div></div>
+        <div class="word"><div class="word_En">trainer</div>：<div class="word_Ja">トレーナー</div></div>
+        <div class="word"><div class="word_En">southwest</div>：<div class="word_Ja">南西</div></div>
+        <div class="word"><div class="word_En">space</div>：<div class="word_Ja">空間、場所</div></div>
+        <div class="word"><div class="word_En">front</div>：<div class="word_Ja">前</div></div>
+        <div class="word"><div class="word_En">explain</div>：<div class="word_Ja">を説明する</div></div>
+        <div class="word"><div class="word_En">finish</div>：<div class="word_Ja">を終える</div></div>
+        <div class="word"><div class="word_En">animation</div>：<div class="word_Ja">アニメーション</div></div>
+        <div class="word"><div class="word_En">remain</div>：<div class="word_Ja">～のままでいる</div></div>
+        <div class="word"><div class="word_En">relax</div>：<div class="word_Ja">くつろぐ</div></div>
+        <div class="word"><div class="word_En">compare</div>：<div class="word_Ja">比較する</div></div>
+        <div class="word"><div class="word_En">tourism</div>：<div class="word_Ja">観光</div></div>
+        <div class="word"><div class="word_En">island</div>：<div class="word_Ja">島</div></div>
+        <div class="word"><div class="word_En">punish</div>：<div class="word_Ja">罰する</div></div>
+        <div class="word"><div class="word_En">lucky</div>：<div class="word_Ja">幸運な</div></div>
+        <div class="word"><div class="word_En">traffic light</div>：<div class="word_Ja">信号機</div></div>
+        <div class="word"><div class="word_En">earthquake</div>：<div class="word_Ja">地震</div></div>
+        <div class="word"><div class="word_En">host</div>：<div class="word_Ja">主人</div></div>
+        <div class="word"><div class="word_En">nod</div>：<div class="word_Ja">うなずく</div></div>
+        <div class="word"><div class="word_En">suggest</div>：<div class="word_Ja">提案する</div></div>
+        <div class="word"><div class="word_En">lend</div>：<div class="word_Ja">を貸す</div></div>
+        <div class="word"><div class="word_En">police</div>：<div class="word_Ja">警察</div></div>
+        <div class="word"><div class="word_En">spread</div>：<div class="word_Ja">広がる</div></div>
+        <div class="word"><div class="word_En">bake</div>：<div class="word_Ja">を焼く</div></div>
+        <div class="word"><div class="word_En">sort</div>：<div class="word_Ja">を分類する、種類</div></div>
+        <div class="word"><div class="word_En">film</div>：<div class="word_Ja">映画</div></div>
+        <div class="word"><div class="word_En">weather</div>：<div class="word_Ja">天気</div></div>
+        <div class="word"><div class="word_En">give B to A</div>：<div class="word_Ja">ＡにＢを与える</div></div>
+        <div class="word"><div class="word_En">than</div>：<div class="word_Ja">～よりも</div></div>
+        <div class="word"><div class="word_En">force</div>：<div class="word_Ja">強制する</div></div>
+        <div class="word"><div class="word_En">visitor</div>：<div class="word_Ja">訪問者</div></div>
+        <div class="word"><div class="word_En">scene</div>：<div class="word_Ja">シーン,場面</div></div>
+        <div class="word"><div class="word_En">above</div>：<div class="word_Ja">の上に</div></div>
+        <div class="word"><div class="word_En">climate</div>：<div class="word_Ja">気候</div></div>
+        <div class="word"><div class="word_En">friendship</div>：<div class="word_Ja">友情</div></div>
+        <div class="word"><div class="word_En">handle</div>：<div class="word_Ja">取っ手</div></div>
+        <div class="word"><div class="word_En">fashion</div>：<div class="word_Ja">流行</div></div>
+        <div class="word"><div class="word_En">lonely</div>：<div class="word_Ja">孤独な</div></div>
+        <div class="word"><div class="word_En">earth</div>：<div class="word_Ja">地球</div></div>
+        <div class="word"><div class="word_En">rescue</div>：<div class="word_Ja">救助する</div></div>
+        <div class="word"><div class="word_En">communicate</div>：<div class="word_Ja">を伝える</div></div>
+        <div class="word"><div class="word_En">police officer</div>：<div class="word_Ja">（一人の）警官</div></div>
+        <div class="word"><div class="word_En">grade</div>：<div class="word_Ja">学年、グレード</div></div>
+        <div class="word"><div class="word_En">radio</div>：<div class="word_Ja">ラジオ</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">10/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">ramp</div>：<div class="word_Ja">スロープ</div></div>
+        <div class="word"><div class="word_En">heritage</div>：<div class="word_Ja">遺産</div></div>
+        <div class="word"><div class="word_En">surprise</div>：<div class="word_Ja">を驚かす</div></div>
+        <div class="word"><div class="word_En">table tennis</div>：<div class="word_Ja">卓球</div></div>
+        <div class="word"><div class="word_En">communication</div>：<div class="word_Ja">意思伝達</div></div>
+        <div class="word"><div class="word_En">fight</div>：<div class="word_Ja">戦う</div></div>
+        <div class="word"><div class="word_En">billion</div>：<div class="word_Ja">10億</div></div>
+        <div class="word"><div class="word_En">electricity</div>：<div class="word_Ja">電気</div></div>
+        <div class="word"><div class="word_En">exam</div>：<div class="word_Ja">試験</div></div>
+        <div class="word"><div class="word_En">fridge</div>：<div class="word_Ja">冷蔵庫</div></div>
+        <div class="word"><div class="word_En">newspaper</div>：<div class="word_Ja">新聞紙</div></div>
+        <div class="word"><div class="word_En">all over</div>：<div class="word_Ja">～中（じゅう）に</div></div>
+        <div class="word"><div class="word_En">hero</div>：<div class="word_Ja">ヒーロー</div></div>
+        <div class="word"><div class="word_En">landmine</div>：<div class="word_Ja">地雷</div></div>
+        <div class="word"><div class="word_En">worth</div>：<div class="word_Ja">価値がある</div></div>
+        <div class="word"><div class="word_En">advice</div>：<div class="word_Ja">助言</div></div>
+        <div class="word"><div class="word_En">call (人) back</div>：<div class="word_Ja">(人) に電話をかけなおす</div></div>
+        <div class="word"><div class="word_En">continue</div>：<div class="word_Ja">を続ける</div></div>
+        <div class="word"><div class="word_En">another</div>：<div class="word_Ja">もう１つの</div></div>
+        <div class="word"><div class="word_En">have a cold</div>：<div class="word_Ja">風邪をひいている</div></div>
+        <div class="word"><div class="word_En">tournament</div>：<div class="word_Ja">勝ち抜き戦</div></div>
+        <div class="word"><div class="word_En">away</div>：<div class="word_Ja">離れた</div></div>
+        <div class="word"><div class="word_En">children</div>：<div class="word_Ja">child の複数形</div></div>
+        <div class="word"><div class="word_En">step</div>：<div class="word_Ja">歩く、ステップ</div></div>
+        <div class="word"><div class="word_En">build</div>：<div class="word_Ja">を建てる</div></div>
+        <div class="word"><div class="word_En">certainly</div>：<div class="word_Ja">確かに</div></div>
+        <div class="word"><div class="word_En">boring</div>：<div class="word_Ja">たいくつな</div></div>
+        <div class="word"><div class="word_En">American</div>：<div class="word_Ja">アメリカの</div></div>
+        <div class="word"><div class="word_En">safe</div>：<div class="word_Ja">安全な</div></div>
+        <div class="word"><div class="word_En">cushion</div>：<div class="word_Ja">クッション</div></div>
+        <div class="word"><div class="word_En">laughter</div>：<div class="word_Ja">笑い</div></div>
+        <div class="word"><div class="word_En">chef</div>：<div class="word_Ja">シェフ</div></div>
+        <div class="word"><div class="word_En">originally</div>：<div class="word_Ja">元々は</div></div>
+        <div class="word"><div class="word_En">drugstore</div>：<div class="word_Ja">薬局</div></div>
+        <div class="word"><div class="word_En">gentleman</div>：<div class="word_Ja">紳士</div></div>
+        <div class="word"><div class="word_En">will</div>：<div class="word_Ja">～するつもりだ、～だろう</div></div>
+        <div class="word"><div class="word_En">save</div>：<div class="word_Ja">救う、節約する</div></div>
+        <div class="word"><div class="word_En">soft</div>：<div class="word_Ja">柔らかい</div></div>
+        <div class="word"><div class="word_En">firewood</div>：<div class="word_Ja">まき</div></div>
+        <div class="word"><div class="word_En">farewell</div>：<div class="word_Ja">別れ</div></div>
+        <div class="word"><div class="word_En">fresh</div>：<div class="word_Ja">新鮮な</div></div>
+        <div class="word"><div class="word_En">pollution</div>：<div class="word_Ja">汚染</div></div>
+        <div class="word"><div class="word_En">adult</div>：<div class="word_Ja">大人</div></div>
+        <div class="word"><div class="word_En">spend</div>：<div class="word_Ja">（お金,時間）を使う</div></div>
+        <div class="word"><div class="word_En">heart</div>：<div class="word_Ja">心</div></div>
+        <div class="word"><div class="word_En">engineer</div>：<div class="word_Ja">エンジニア</div></div>
+        <div class="word"><div class="word_En">passport</div>：<div class="word_Ja">パスポート</div></div>
+        <div class="word"><div class="word_En">college</div>：<div class="word_Ja">大学</div></div>
+        <div class="word"><div class="word_En">pain</div>：<div class="word_Ja">痛み</div></div>
+        <div class="word"><div class="word_En">western</div>：<div class="word_Ja">西の</div></div>
+        <div class="word"><div class="word_En">hurry</div>：<div class="word_Ja">急ぐ</div></div>
+        <div class="word"><div class="word_En">minute</div>：<div class="word_Ja">（時間の）分</div></div>
+        <div class="word"><div class="word_En">architect</div>：<div class="word_Ja">建築家</div></div>
+        <div class="word"><div class="word_En">missing</div>：<div class="word_Ja">失くした</div></div>
+        <div class="word"><div class="word_En">patient</div>：<div class="word_Ja">患者</div></div>
+        <div class="word"><div class="word_En">stomachache</div>：<div class="word_Ja">腹痛</div></div>
+        <div class="word"><div class="word_En">safely</div>：<div class="word_Ja">安全に</div></div>
+        <div class="word"><div class="word_En">clear</div>：<div class="word_Ja">明るい、はっきりとした</div></div>
+        <div class="word"><div class="word_En">however</div>：<div class="word_Ja">しかしながら</div></div>
+        <div class="word"><div class="word_En">main</div>：<div class="word_Ja">主な</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<div id="page">
+    <div style="position:absolute; left: 100px; top:100px; font-size: 90px; font-family:'Noto Sans JP ExtraBold';">英単語テスト 中2</div>
+    <div style="position:absolute; left: 900px; top:250px; font-size: 40px; font-family:'Century'; width:700px; border-bottom:solid black 4px;">Name:</div>
+    <div style="position:absolute; left:   50%; top:98.5%; font-size: 30px; font-family:'Noto Sans JP'; transform:translate(-50%,-50%);">11/11　Ⓒ Amano</div>
+
+    <div id="words">
+        <!-- <div class="word"><div class="word_En">ENGLISH</div>:<div class="word_Ja">JAPANESE</div></div> -->
+<!-- WORD ADDITION -->
+        <div class="word"><div class="word_En">brave</div>：<div class="word_Ja">勇敢な</div></div>
+        <div class="word"><div class="word_En">end</div>：<div class="word_Ja">終わり</div></div>
+        <div class="word"><div class="word_En">astronaut</div>：<div class="word_Ja">宇宙飛行士</div></div>
+        <div class="word"><div class="word_En">journalist</div>：<div class="word_Ja">記者</div></div>
+        <div class="word"><div class="word_En">dress</div>：<div class="word_Ja">衣装、ドレス</div></div>
+        <div class="word"><div class="word_En">meeting</div>：<div class="word_Ja">会議</div></div>
+        <div class="word"><div class="word_En">sea level rise</div>：<div class="word_Ja">海面上昇</div></div>
+        <div class="word"><div class="word_En">empty</div>：<div class="word_Ja">からの</div></div>
+        <div class="word"><div class="word_En">branch</div>：<div class="word_Ja">支社、枝</div></div>
+        <div class="word"><div class="word_En">God</div>：<div class="word_Ja">神</div></div>
+        <div class="word"><div class="word_En">sell</div>：<div class="word_Ja">を売る</div></div>
+        <div class="word"><div class="word_En">Ferris wheel</div>：<div class="word_Ja">観覧車</div></div>
+        <div class="word"><div class="word_En">a few</div>：<div class="word_Ja">少し</div></div>
+        <div class="word"><div class="word_En">collect</div>：<div class="word_Ja">集める</div></div>
+        <div class="word"><div class="word_En">respond</div>：<div class="word_Ja">こたえる</div></div>
+        <div class="word"><div class="word_En">landing card</div>：<div class="word_Ja">入国カード</div></div>
+        <div class="word"><div class="word_En">bathroom</div>：<div class="word_Ja">トイレ、浴室</div></div>
+        <div class="word"><div class="word_En">invite</div>：<div class="word_Ja">～を招く</div></div>
+        <div class="word"><div class="word_En">official</div>：<div class="word_Ja">職員</div></div>
+        <div class="word"><div class="word_En">fever</div>：<div class="word_Ja">熱</div></div>
+        <div class="word"><div class="word_En">air pollution</div>：<div class="word_Ja">大気汚染</div></div>
+        <div class="word"><div class="word_En">boat</div>：<div class="word_Ja">ボート</div></div>
+        <div class="word"><div class="word_En">global</div>：<div class="word_Ja">地球の</div></div>
+        <div class="word"><div class="word_En">fiction</div>：<div class="word_Ja">小説</div></div>
+        <div class="word"><div class="word_En">everybody</div>：<div class="word_Ja">みんな</div></div>
+        <div class="word"><div class="word_En">never</div>：<div class="word_Ja">今まで一度も～ない</div></div>
+        <div class="word"><div class="word_En">sick</div>：<div class="word_Ja">病気の</div></div>
+        <div class="word"><div class="word_En">fill</div>：<div class="word_Ja">いっぱいになる</div></div>
+        <div class="word"><div class="word_En">staff</div>：<div class="word_Ja">職員</div></div>
+        <div class="word"><div class="word_En">disaster</div>：<div class="word_Ja">災害</div></div>
+<!-- WORD ADDITION -->
+    </div>
+</div>
+<!-- PAGE ADDITION -->
+</main>
+</body>
+</html>
