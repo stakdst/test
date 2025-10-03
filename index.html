@@ -108,6 +108,10 @@ button { cursor:pointer; }
   .controls { flex-direction:column; align-items:center; }
   #startBtn { width:100%; text-align:center; }
 }
+body, .container, button {
+  touch-action: manipulation; /* ダブルタップによるズームやピンチズームを抑制 */
+  -ms-touch-action: manipulation; /* IE/Edge用 */
+}
 </style>
 </head>
 <body>
