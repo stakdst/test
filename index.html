@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
 <title>英単語テスト</title>
 <style>
 body { 
@@ -10,6 +10,7 @@ body {
   padding: 20px; 
   background: #f5f5f5; 
   color:#111; 
+  touch-action: manipulation; /* iPhoneダブルタップズーム防止 */
 }
 .container { 
   max-width: 900px; 
@@ -21,23 +22,21 @@ body {
 }
 h1 { margin-top:0; text-align:center; }
 h1 a {
-  color: #111;              
-  text-decoration: none;    
+  color: #111; 
+  text-decoration: none;
 }
 h1 a.disabled {
-  pointer-events: none;     
-  color: #111;              
+  pointer-events: none;
+  color: #111;
 }
 .controls { 
   margin-bottom: 18px; 
   display:flex; 
   gap:10px; 
-  flex-wrap:nowrap; 
+  flex-wrap:wrap; 
   align-items:center; 
   justify-content:center;
 }
-.rangeGroup, .timeGroup { display:flex; align-items:center; gap:5px; }
-button { cursor:pointer; }
 #startBtn { 
   font-size:1.2rem; 
   padding:10px 20px; 
@@ -68,7 +67,9 @@ button { cursor:pointer; }
 .choiceBtn:active { transform: translateY(1px); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
 .correct { background:#4dabf7 !important; color:#fff; }
 .wrong { background:#ff6b6b !important; color:#fff; }
-#quizArea { text-align: center; }
+#quizArea {
+  text-align: center;
+}
 .timer { 
   font-size:1rem;
   font-weight:bold; 
@@ -82,8 +83,6 @@ button { cursor:pointer; }
   text-align:center; 
   font-family: 'Roboto Mono', 'Noto Mono', monospace;
   white-space: nowrap;
-  min-width:auto;
-  max-width:100%;
 }
 .hidden { display:none; }
 #summary { text-align:center; font-family:sans-serif; }
@@ -101,7 +100,20 @@ button { cursor:pointer; }
 }
 .result-label { width:40%; text-align:right; padding-right:5px; }
 .result-value { width:35%; text-align:right; margin-right:25%; }
-
+.range-buttons {
+  display: inline-flex;
+  gap: 4px;
+}
+.range-buttons button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 6px;
+  background: #ddd;
+  cursor: pointer;
+}
+.range-buttons button:active {
+  background: #bbb;
+}
 @media (max-width: 600px) {
   .choiceBtn { font-size: 1.3rem; padding:16px; }
   .word { font-size: 2.5rem; padding:24px; }
@@ -116,32 +128,28 @@ button { cursor:pointer; }
     <a id="quizLink" href="https://stakdst.github.io/TEST/高校_CHECK.pdf">英単語クイズ</a>
   </h1>
   <div class="controls" id="controls">
-    <div class="rangeGroup">
-      <label>範囲: 
-        <input id="rangeStart" type="number" min="1" value="1" style="width:70px"> 〜 
-        <input id="rangeEnd" type="number" min="1" value="100" style="width:70px">
-      </label>
-      <div>
-        <button id="rangeMinus">-</button>
-        <button id="rangePlus">+</button>
-      </div>
-    </div>
-    <div class="timeGroup">
-      <label style="margin-right:5%">制限時間(秒):
-        <input id="timeInput" type="number" min="1" value="200" style="width:70px">
-      </label>
-      <label>選択肢:
-        <select id="choiceCountSelect">
-          <option value="2">2 個</option>
-          <option value="3">3 個</option>
-          <option value="4" selected>4 個</option>
-          <option value="5">5 個</option>
-          <option value="6">6 個</option>
-          <option value="7">7 個</option>
-          <option value="8">8 個</option>
-        </select>
-      </label>
-    </div>
+    <label>範囲: 
+      <input id="rangeStart" type="number" min="1" value="1" style="width:70px"> 〜 
+      <input id="rangeEnd" type="number" min="1" value="100" style="width:70px">
+      <span class="range-buttons">
+        <button id="minus100">-100</button>
+        <button id="plus100">+100</button>
+      </span>
+    </label>
+    <label>制限時間(秒):
+      <input id="timeInput" type="number" min="1" value="200" style="width:70px">
+    </label>
+    <label>選択肢:
+      <select id="choiceCountSelect">
+        <option value="2">2 個</option>
+        <option value="3">3 個</option>
+        <option value="4" selected>4 個</option>
+        <option value="5">5 個</option>
+        <option value="6">6 個</option>
+        <option value="7">7 個</option>
+        <option value="8">8 個</option>
+      </select>
+    </label>
     <button id="startBtn">スタート</button>
   </div>
 
@@ -170,9 +178,8 @@ const choicesDiv=document.getElementById('choices');
 const summaryDiv=document.getElementById('summary');
 const globalTimerDiv=document.getElementById('globalTimer');
 const controls=document.getElementById('controls');
-const quizLink=document.getElementById('quizLink');
-const rangePlusBtn=document.getElementById('rangePlus');
-const rangeMinusBtn=document.getElementById('rangeMinus');
+const minus100=document.getElementById('minus100');
+const plus100=document.getElementById('plus100');
 
 function playSound(audioElem) {
   const s = audioElem.cloneNode();
@@ -181,44 +188,37 @@ function playSound(audioElem) {
   s.play().catch(e => console.log("play error:", e));
 }
 
-// ±100ボタン
-rangePlusBtn.addEventListener('click',()=>adjustRange(100));
-rangeMinusBtn.addEventListener('click',()=>adjustRange(-100));
-
-function adjustRange(delta){
-  const maxVal = wordPairs.length || 1;
-  let start=parseInt(rangeStart.value)||1;
-  let end=parseInt(rangeEnd.value)||1;
-  start = Math.max(1, Math.min(maxVal, start+delta));
-  end = Math.max(1, Math.min(maxVal, end+delta));
-  if(start > end) start = end;
-  rangeStart.value=start;
-  rangeEnd.value=end;
-  updateTimeByRange();
+function clampRange() {
+  let start = parseInt(rangeStart.value)||1;
+  let end = parseInt(rangeEnd.value)||1;
+  if(start < 1) start = 1;
+  if(end < 1) end = 1;
+  const max = wordPairs.length;
+  if(start > max) start = max;
+  if(end > max) end = max;
+  rangeStart.value = start;
+  rangeEnd.value = end;
 }
 
-// 入力時にも自動で上限調整
-rangeStart.addEventListener('input',updateRangeInput);
-rangeEnd.addEventListener('input',updateRangeInput);
+rangeStart.addEventListener('input',()=>{ clampRange(); updateTimeByRange(); });
+rangeEnd.addEventListener('input',()=>{ clampRange(); updateTimeByRange(); });
 
-function updateRangeInput(){
-  const maxVal = wordPairs.length || 1;
-  let start=parseInt(rangeStart.value)||1;
-  let end=parseInt(rangeEnd.value)||1;
-  if(start < 1) start=1;
-  if(end < 1) end=1;
-  if(start > maxVal) start=maxVal;
-  if(end > maxVal) end=maxVal;
-  if(start > end) start=end;
-  rangeStart.value=start;
-  rangeEnd.value=end;
+minus100.addEventListener('click',()=>{
+  rangeStart.value = parseInt(rangeStart.value)-100;
+  rangeEnd.value = parseInt(rangeEnd.value)-100;
+  clampRange();
   updateTimeByRange();
-}
+});
+plus100.addEventListener('click',()=>{
+  rangeStart.value = parseInt(rangeStart.value)+100;
+  rangeEnd.value = parseInt(rangeEnd.value)+100;
+  clampRange();
+  updateTimeByRange();
+});
 
-// 時間自動調整
 function updateTimeByRange(){
   const start=parseInt(rangeStart.value)||1;
-  const end=parseInt(rangeEnd.value)||1;
+  const end=parseInt(rangeEnd.value)||wordPairs.length;
   if(start<1||end<start) return;
   const count=end-start+1;
   timeInput.value=Math.ceil(count*2);
@@ -236,8 +236,8 @@ startBtn.addEventListener('click',()=>{
   quizArea.classList.remove('hidden'); summaryDiv.classList.add('hidden');
   Array.from(controls.querySelectorAll("input,select,button")).forEach(el=>el.disabled=true);
 
-  // リンク無効化
-  quizLink.classList.add("disabled");
+  // ★ ゲーム開始したらリンクを無効化
+  document.getElementById("quizLink").classList.add("disabled");
 
   globalTime=parseFloat(timeInput.value);
   startTime=performance.now();
@@ -325,8 +325,8 @@ function showSummary(cleared=false,timeOut=false){
   quizArea.classList.add('hidden'); summaryDiv.classList.remove('hidden');
   Array.from(controls.querySelectorAll("input,select,button")).forEach(el=>el.disabled=false);
 
-  // リンク再有効化
-  quizLink.classList.remove("disabled");
+  // ★ ゲーム終了したらリンクを再び有効化
+  document.getElementById("quizLink").classList.remove("disabled");
 
   let remainingQuestions = totalQuestions - correctCount; 
 
@@ -2453,6 +2453,7 @@ const wordPairs = [
   {english:"due", japanese:"〜のせいで,～予定の,当然の", dummy:['虐待', '枝,支店,部門,分野', 'ため息をつく', 'しなくなる', '似ている', '減少する', 'を必要とする', '郊外', '衝動', 'に続く,に従う', '傑作', '花', '単調な', '会社,堅い', '欠点', '手続き', '間接', '小道,足跡', 'を促進する,育てる', 'に依存する', 'を磨く', '興味深い', 'を驚嘆させる', '変える', 'ほめ言葉', 'に加えて', 'を推測する', '宝石', '部族', 'を提案する', '練習,習慣', 'すばらしい', '先住', '神', 'ぼろ', '圧倒的な', '無作為な', '価値', '乗客', '栄光', '支払う', '直接,指し示す', '流行', '厳しい', '浸す,吸収する', 'を反映する,を反射する', 'からの', '大臣', '変わる,様々である', '元気,罰金,細かい', 'うまく対処する', '独占', '棒,極', '同僚,じっと見る', 'を放送する', '最初の', '引き合いに出す', '特徴', '有罪の', '顕著な', 'を振る', 'を禁じる', '孤児', '近い,親しい', '伝記', '代表して', '預言者', '目新しさ', '口論', '湾', 'ゆるい', '自由主義の', '炎', 'にあいさつする', 'すらりとした', '典型的な', '庭', '怠惰な', '工芸,技術', '１年の', '達成する', '野蛮な', '石油', 'を選ぶ', '認知症', 'ウイルス', '美徳', 'を非難する', '間隔', '腫瘍', '仲間の', 'ひどい', '必死の', '販売', 'すえつける,乗る', '市長', '抗議', '合成の', '気質', '出現,到来']},
 // ADD WORDS
 ];
+
 </script>
 </body>
 </html>
