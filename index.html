@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>英単語テスト</title>
+<style>
+body { 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; 
+  padding: 20px; 
+  background: #f5f5f5; 
+  color:#111; 
+}
+.container { 
+  max-width: 900px; 
+  margin: 0 auto; 
+  background: rgba(255,255,255,0.95); 
+  padding:20px; 
+  box-shadow:0 8px 24px rgba(0,0,0,0.15); 
+  border-radius:12px; 
+}
+h1 { margin-top:0; text-align:center; }
+h1 a {
+  color: #111;              
+  text-decoration: none;    
+}
+h1 a.disabled {
+  pointer-events: none;     
+  color: #111;              
+}
+.controls { 
+  margin-bottom: 18px; 
+  display:flex; 
+  gap:10px; 
+  flex-wrap:wrap; 
+  align-items:center; 
+  justify-content:center;
+}
+#startBtn { 
+  font-size:1.2rem; 
+  padding:10px 20px; 
+  border-radius:8px; 
+  background:#4dabf7; 
+  color:#fff; 
+  border:none; 
+  cursor:pointer; 
+  transition: transform 0.1s, background 0.1s;
+}
+#startBtn:active { transform: translateY(1px); }
+
+.rangeBtn, .choiceBtn {
+  margin-left: 6px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f0f0f0;
+  transition: background 0.1s;
+}
+.rangeBtn:hover, .choiceBtn:hover {
+  background: #e0e0e0;
+}
+
+.word {
+  font-size: 2.2rem; 
+  margin: 20px 0; 
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  text-align: center;
+}
+.choices { display:flex; flex-direction:column; gap:12px; margin-bottom:12px; }
+.choiceBtn.quizChoice { 
+  padding:14px; font-size:1.1rem; cursor:pointer; border:none; 
+  background:#f0f0f0; border-radius:10px; 
+  transition: transform 0.1s, background 0.1s, box-shadow 0.3s; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align:left;
+}
+.choiceBtn.quizChoice:active { transform: translateY(1px); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.correct { background:#4dabf7 !important; color:#fff; }
+.wrong { background:#ff6b6b !important; color:#fff; }
+#quizArea { text-align: center; }
+.timer { 
+  font-size:1rem;
+  font-weight:bold; 
+  margin: 0px auto;
+  display:inline-block;
+  background:#272727; 
+  color:#fff; 
+  padding:6px 12px;
+  border-radius:20px; 
+  box-shadow:0 4px 10px rgba(0,0,0,0.2); 
+  text-align:center; 
+  font-family: 'Roboto Mono', 'Noto Mono', monospace;
+  white-space: nowrap;
+  min-width:auto;
+  max-width:100%;
+}
+.hidden { display:none; }
+#summary { text-align:center; font-family:sans-serif; }
+#summary h2 { font-size:2rem; margin-bottom:15px; }
+.summary-card {
+  display:inline-block;
+  padding:20px 30px;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  min-width:300px;
+}
+.result-row { 
+  display:flex; justify-content:center; margin:5px 0; font-size:1.2rem; 
+}
+.result-label { width:40%; text-align:right; padding-right:5px; }
+.result-value { width:35%; text-align:right; margin-right:25%; }
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+  .choiceBtn.quizChoice { font-size: 1.3rem; padding:16px; }
+  .word { font-size: 2.5rem; padding:24px; }
+  .controls { flex-direction:column; align-items:center; }
+  #startBtn { width:100%; text-align:center; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>
+    <a id="quizLink" href="https://stakdst.github.io/TEST/高校_CHECK.pdf">英単語クイズ</a>
+  </h1>
+  <div class="controls" id="controls">
+    <label>範囲: 
+      <input id="rangeStart" type="number" min="1" value="1" style="width:70px"> 〜 
+      <input id="rangeEnd" type="number" min="1" value="100" style="width:70px">
+      <button type="button" class="rangeBtn" data-delta="-100">-100</button>
+      <button type="button" class="rangeBtn" data-delta="100">+100</button>
+    </label>
+    <label>制限時間(秒):
+      <input id="timeInput" type="number" min="1" value="200" style="width:70px">
+    </label>
+    <label>選択肢:
+      <select id="choiceCountSelect">
+        <option value="2">2 個</option>
+        <option value="3">3 個</option>
+        <option value="4" selected>4 個</option>
+        <option value="5">5 個</option>
+        <option value="6">6 個</option>
+        <option value="7">7 個</option>
+        <option value="8">8 個</option>
+      </select>
+      <button type="button" class="choiceBtn" data-delta="-1">-</button>
+      <button type="button" class="choiceBtn" data-delta="1">+</button>
+    </label>
+    <button id="startBtn">スタート</button>
+  </div>
+
+  <div id="quizArea" class="hidden">
+    <div id="globalTimer" class="timer"></div>
+    <div id="englishWord" class="word"></div>
+    <div id="choices" class="choices"></div>
+  </div>
+  <div id="summary" class="hidden"></div>
+
+  <audio id="correctSound" src="correct.wav" preload="auto"></audio>
+  <audio id="wrongSound" src="wrong.wav" preload="auto"></audio>
+</div>
+
+<script>
+let quizList=[], currentIndex=0, correctCount=0, incorrectCount=0, globalTime=0, startTime=0, animationFrameId=null, canSelect=true, totalQuestions=0;
+
+const startBtn=document.getElementById('startBtn');
+const rangeStart=document.getElementById('rangeStart');
+const rangeEnd=document.getElementById('rangeEnd');
+const timeInput=document.getElementById('timeInput');
+const choiceCountSelect=document.getElementById('choiceCountSelect');
+const quizArea=document.getElementById('quizArea');
+const englishWordDiv=document.getElementById('englishWord');
+const choicesDiv=document.getElementById('choices');
+const summaryDiv=document.getElementById('summary');
+const globalTimerDiv=document.getElementById('globalTimer');
+const controls=document.getElementById('controls');
+const quizLink=document.getElementById("quizLink");
+
+function playSound(audioElem) {
+  const s = audioElem.cloneNode();
+  s.playbackRate = audioElem.playbackRate;
+  s.volume = audioElem.volume;
+  s.play().catch(e => console.log("play error:", e));
+}
+
+rangeStart.addEventListener('input',updateTimeByRange);
+rangeEnd.addEventListener('input',updateTimeByRange);
+function updateTimeByRange(){
+  const start=parseInt(rangeStart.value)||1;
+  const end=parseInt(rangeEnd.value)||wordPairs.length;
+  if(start<1||end<start) return;
+  const count=end-start+1;
+  timeInput.value=Math.ceil(count*2);
+}
+
+// 範囲ボタン
+document.querySelectorAll(".rangeBtn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const delta = parseInt(btn.dataset.delta);
+    rangeEnd.value = Math.max(1, parseInt(rangeEnd.value) + delta);
+    updateTimeByRange();
+  });
+});
+
+// 選択肢数ボタン
+document.querySelectorAll(".choiceBtn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const delta = parseInt(btn.dataset.delta);
+    let newVal = parseInt(choiceCountSelect.value) + delta;
+    if(newVal < 2) newVal = 2;
+    if(newVal > 8) newVal = 8;
+    choiceCountSelect.value = newVal;
+  });
+});
+
+startBtn.addEventListener('click',()=>{
+  const start=parseInt(rangeStart.value)||1;
+  const end=parseInt(rangeEnd.value)||wordPairs.length;
+  if(start<1||end>wordPairs.length||start>end){ alert("範囲指定が不正です"); return; }
+  quizList=wordPairs.slice(start-1,end);
+  quizList.sort(()=>Math.random()-0.5);
+  totalQuestions=quizList.length;
+  correctCount=0; incorrectCount=0; currentIndex=0; canSelect=true;
+
+  quizArea.classList.remove('hidden'); summaryDiv.classList.add('hidden');
+  Array.from(controls.querySelectorAll("input,select,button")).forEach(el=>el.disabled=true);
+
+  // ゲーム開始したらリンク無効化
+  quizLink.classList.add("disabled");
+
+  globalTime=parseFloat(timeInput.value);
+  startTime=performance.now();
+  requestAnimationFrame(updateTimer);
+  showQuestion();
+  
+  const correctSound = document.getElementById("correctSound");
+  const wrongSound = document.getElementById("wrongSound");
+
+  correctSound.playbackRate = 1.8;
+  wrongSound.playbackRate = 1.5;
+});
+
+function updateTimer(timestamp){
+  const elapsed=(timestamp-startTime)/1000;
+  const remain=Math.max(globalTime-elapsed,0);
+  globalTimerDiv.textContent=`正解数: ${correctCount}/${totalQuestions}問       時間: ${remain.toFixed(2)}`;
+  if(remain<=0){ showSummary(false,true); }
+  else{ animationFrameId=requestAnimationFrame(updateTimer); }
+}
+
+function showQuestion(){
+  if(currentIndex>=quizList.length){ return showSummary(true,false); }
+  canSelect=true;
+  const item=quizList[currentIndex];
+  englishWordDiv.textContent=item.english;
+  globalTimerDiv.textContent=`正解数: ${correctCount}/${totalQuestions}問       時間: ${getRemainingTime().toFixed(2)}`;
+
+  let choices=[item.japanese];
+  const totalChoices=parseInt(choiceCountSelect.value);
+  let dummies=[...item.dummy]; dummies.sort(()=>Math.random()-0.5);
+  while(choices.length<totalChoices && dummies.length>0){ choices.push(dummies.pop()); }
+  choices.sort(()=>Math.random()-0.5);
+
+  choicesDiv.innerHTML="";
+  choices.forEach(ch=>{
+    const btn=document.createElement('button');
+    btn.className="choiceBtn quizChoice";
+    btn.textContent=ch;
+    btn.addEventListener('mousedown',()=>selectChoice(btn,ch,item.japanese));
+    btn.addEventListener('touchstart',(e)=>{e.preventDefault(); selectChoice(btn,ch,item.japanese);},{passive:false});
+    choicesDiv.appendChild(btn);
+  });
+}
+
+function getRemainingTime(){ return Math.max(globalTime-(performance.now()-startTime)/1000,0); }
+
+function selectChoice(btn, selected, correct){
+  if(!canSelect) return;
+  canSelect = false;
+
+  const buttons = document.querySelectorAll(".choiceBtn.quizChoice");
+  buttons.forEach(b => b.disabled = true);
+
+  const correctSound = document.getElementById("correctSound");
+  const wrongSound = document.getElementById("wrongSound");
+
+  if(selected === correct){
+    btn.classList.add("correct");
+    correctCount++;
+    playSound(correctSound);
+
+    setTimeout(() => { 
+      currentIndex++; 
+      showQuestion(); 
+    }, 500);
+
+  } else {
+    buttons.forEach(b => { 
+      if(b.textContent === correct) b.classList.add("wrong"); 
+    });
+    quizList.push(quizList[currentIndex]);
+    incorrectCount++;
+    playSound(wrongSound);
+
+    setTimeout(() => { 
+      currentIndex++; 
+      showQuestion(); 
+    }, 800);
+  }
+}
+
+function showSummary(cleared=false,timeOut=false){
+  if(animationFrameId) cancelAnimationFrame(animationFrameId);
+  quizArea.classList.add('hidden'); summaryDiv.classList.remove('hidden');
+  Array.from(controls.querySelectorAll("input,select,button")).forEach(el=>el.disabled=false);
+
+  // リンクを再有効化
+  quizLink.classList.remove("disabled");
+
+  let remainingQuestions = totalQuestions - correctCount; 
+
+  let cardHTML='';
+  if(timeOut){
+    cardHTML=`<div class="summary-card">
+      <h2>GameOver !</h2>
+      <div class="result-row"><span class="result-label">正解数</span><span class="result-value">${correctCount}/${totalQuestions}問</span></div>
+      <div class="result-row"><span class="result-label">miss</span><span class="result-value">${incorrectCount}回</span></div>
+      <div class="result-row"><span class="result-label">あと</span><span class="result-value">${remainingQuestions}問</span></div>
+    </div>`;
+  }else{
+    const elapsedTime=((performance.now()-startTime)/1000).toFixed(2);
+    cardHTML=`<div class="summary-card">
+      <h2>CLEAR!</h2>
+      <div class="result-row"><span class="result-label">正解数</span><span class="result-value">${correctCount}/${totalQuestions}問</span></div>
+      <div class="result-row"><span class="result-label">miss</span><span class="result-value">${incorrectCount}回</span></div>
+      <div class="result-row"><span class="result-label">time</span><span class="result-value">${elapsedTime}秒</span></div>
+    </div>`;
+  }
+  summaryDiv.innerHTML=cardHTML;
+}
+
+const wordPairs = [
+// ADD WORDS HERE
+];
+</script>
+</body>
+</html>
