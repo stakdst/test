@@ -34,7 +34,7 @@ h1 a.disabled {
   gap:10px; 
   flex-wrap:wrap; 
   align-items:center; 
-  justify-content:center;
+  justify-content:space-between;
 }
 .rangeGroup, .timeGroup { display:flex; align-items:center; gap:5px; }
 button { cursor:pointer; }
@@ -121,8 +121,10 @@ button { cursor:pointer; }
         <input id="rangeStart" type="number" min="1" value="1" style="width:70px"> 〜 
         <input id="rangeEnd" type="number" min="1" value="100" style="width:70px">
       </label>
-      <button id="rangePlus">+100</button>
-      <button id="rangeMinus">-100</button>
+      <div>
+        <button id="rangeMinus">-</button>
+        <button id="rangePlus">+</button>
+      </div>
     </div>
     <div class="timeGroup">
       <label>制限時間(秒):
