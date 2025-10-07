@@ -175,6 +175,7 @@ h1 a.disabled {
 
 <script>
 let quizList=[], currentIndex=0, correctCount=0, incorrectCount=0, globalTime=0, startTime=0, animationFrameId=null, canSelect=true, totalQuestions=0;
+let missList=[];
 
 const startBtn=document.getElementById('startBtn');
 const rangeStart=document.getElementById('rangeStart');
@@ -209,8 +210,16 @@ function clampRange() {
   rangeEnd.value = end;
 }
 
-rangeStart.addEventListener('input',()=>{ clampRange(); updateTimeByRange(); });
-rangeEnd.addEventListener('input',()=>{ clampRange(); updateTimeByRange(); });
+rangeStart.addEventListener('input',()=>{
+  if (rangeStart.value === "" || rangeEnd.value === "") return;
+  updateTimeByRange();
+});
+rangeEnd.addEventListener('input',()=>{
+  if (rangeStart.value === "" || rangeEnd.value === "") return;
+  updateTimeByRange();
+});
+rangeStart.addEventListener('change',()=>{ clampRange(); updateTimeByRange(); });
+rangeEnd.addEventListener('change',()=>{ clampRange(); updateTimeByRange(); });
 
 minus100.addEventListener('click',()=>{
   rangeStart.value = parseInt(rangeStart.value)-100;
@@ -241,11 +250,11 @@ startBtn.addEventListener('click',()=>{
   quizList.sort(()=>Math.random()-0.5);
   totalQuestions=quizList.length;
   correctCount=0; incorrectCount=0; currentIndex=0; canSelect=true;
+  missList=[];
 
   quizArea.classList.remove('hidden'); summaryDiv.classList.add('hidden');
   Array.from(controls.querySelectorAll("input,select,button")).forEach(el=>el.disabled=true);
 
-  // ★ ゲーム開始したらリンクを無効化
   document.getElementById("quizLink").classList.add("disabled");
 
   globalTime=parseFloat(timeInput.value);
@@ -320,6 +329,12 @@ function selectChoice(btn, selected, correct){
     });
     quizList.push(quizList[currentIndex]);
     incorrectCount++;
+
+    const currentWord = quizList[currentIndex];
+    if (!missList.some(m => m.english === currentWord.english)) {
+      missList.push({english: currentWord.english, japanese: currentWord.japanese});
+    }
+
     playSound(wrongSound);
 
     setTimeout(() => { 
@@ -334,7 +349,6 @@ function showSummary(cleared=false,timeOut=false){
   quizArea.classList.add('hidden'); summaryDiv.classList.remove('hidden');
   Array.from(controls.querySelectorAll("input,select,button")).forEach(el=>el.disabled=false);
 
-  // ★ ゲーム終了したらリンクを再び有効化
   document.getElementById("quizLink").classList.remove("disabled");
 
   let remainingQuestions = totalQuestions - correctCount; 
@@ -344,17 +358,36 @@ function showSummary(cleared=false,timeOut=false){
     cardHTML=`<div class="summary-card">
       <h2>GameOver !</h2>
       <div class="result-row"><span class="result-label">正解数</span><span class="result-value">${correctCount}/${totalQuestions}問</span></div>
-      <div class="result-row"><span class="result-label">miss</span><span class="result-value">${incorrectCount}回</span></div>
       <div class="result-row"><span class="result-label">あと</span><span class="result-value">${remainingQuestions}問</span></div>
+      <div class="result-row"><span class="result-label">Miss</span><span class="result-value">${incorrectCount}回</span></div>
     </div>`;
-  }else{
+
+    if(missList.length > 0){
+      cardHTML += `<div style="text-align:left;">
+        <h3 style="margin:20px 0 10px 0 ;">Miss一覧</h3>
+        <ul style="list-style:none; padding-left:0; margin-top:0px;">` +
+        missList.map(m=>`<li>${m.english}　${m.japanese}</li>`).join('') +
+        `</ul>
+      </div>`;
+    }
+  } else {
+
     const elapsedTime=((performance.now()-startTime)/1000).toFixed(2);
     cardHTML=`<div class="summary-card">
       <h2>CLEAR!</h2>
-      <div class="result-row"><span class="result-label">正解数</span><span class="result-value">${correctCount}/${totalQuestions}問</span></div>
-      <div class="result-row"><span class="result-label">miss</span><span class="result-value">${incorrectCount}回</span></div>
-      <div class="result-row"><span class="result-label">time</span><span class="result-value">${elapsedTime}秒</span></div>
+      <div class="result-row"><span class="result-label">正解数</span><span class="result-value">${correctCount}問</span></div>
+      <div class="result-row"><span class="result-label">Time</span><span class="result-value">${elapsedTime}秒</span></div>
+      <div class="result-row"><span class="result-label">Miss</span><span class="result-value">${incorrectCount}回</span></div>
     </div>`;
+
+    if(missList.length>0){
+      cardHTML += `<div style="text-align:left;">
+        <h3 style="margin:20px 0 10px 0;">Miss一覧</h3>
+        <ul style="list-style:none; padding-left:0; margin-top:0px;">` +
+        missList.map(m=>`<li>${m.english}　${m.japanese}</li>`).join('') +
+        `</ul>
+      </div>`;
+    }
   }
   summaryDiv.innerHTML=cardHTML;
 }
