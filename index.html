@@ -370,7 +370,7 @@ function updateTimeByRange(){
   const end=parseInt(rangeEnd.value)||wordPairs.length;
   if(start<1||end<start) return;
   const count=end-start+1;
-  timeInput.value=Math.ceil(count*2);
+  timeInput.value=Math.ceil(count*3);
 }
 
 /* ------------------ タイマー更新 ------------------ */
