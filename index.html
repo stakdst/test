@@ -48,6 +48,7 @@ h1 a.disabled {
   padding:10px 20px; 
   border-radius:8px; 
   background:#4dabf7; 
+  background:rgb(247, 77, 77); 
   color:#fff; 
   border:none; 
   cursor:pointer; 
@@ -94,17 +95,12 @@ h1 a.disabled {
 #summary { text-align:center; font-family:sans-serif; }
 #summary h2 { font-size:2rem; margin-bottom:15px; }
 .summary-card {
-  display: block;
-  margin: 9px auto;
-  padding: 20px 24px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  max-width: calc(100% - 10px);
-  width: 600px;
-  box-sizing: border-box;
-  word-break: break-word;
-  overflow-wrap: break-word;
+  display:inline-block;
+  padding:20px 30px;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  min-width:300px;
 }
 .result-row { 
   display:flex; justify-content:center; margin:5px 0; font-size:1.2rem; 
@@ -175,11 +171,13 @@ rt{font-size:0.75rem; font-family:"Nato Sans Medium"; color:gray; text-align:cen
   </div>
   <div id="summary" class="hidden"></div>
 
+  <!-- フォールバックのために残す短い audio 要素（WebAudio に失敗した時に使用） -->
   <audio id="correctSound" src="correct.wav" preload="auto"></audio>
   <audio id="wrongSound" src="wrong.wav" preload="auto"></audio>
 </div>
 
 <script>
+/* ---------- グローバル変数 (既存の変数名を維持) ---------- */
 let quizList=[], currentIndex=0, correctCount=0, incorrectCount=0, globalTime=0, startTime=0, animationFrameId=null, canSelect=true, totalQuestions=0;
 let missList=[];
 
@@ -197,13 +195,139 @@ const controls=document.getElementById('controls');
 const minus100=document.getElementById('minus100');
 const plus100=document.getElementById('plus100');
 
-function playSound(audioElem) {
-  const s = audioElem.cloneNode();
-  s.playbackRate = audioElem.playbackRate;
-  s.volume = audioElem.volume;
-  s.play().catch(e => console.log("play error:", e));
+const STORAGE_KEY = 'vocabQuizSettings_v1';
+
+/* ------------------ 1) Fisher–Yates シャッフル ------------------ */
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
+/* ------------------ 2) WebAudio + フォールバック実装 ------------------ */
+let audioCtx = null;
+let correctBuffer = null;
+let wrongBuffer = null;
+let audioFallbackPool = null;
+
+async function initAudioAssets() {
+  if (audioCtx || audioFallbackPool) return;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const fetchAndDecode = async (url) => {
+      const res = await fetch(url);
+      const ab = await res.arrayBuffer();
+      return await audioCtx.decodeAudioData(ab);
+    };
+    correctBuffer = await fetchAndDecode('correct.wav').catch(()=>null);
+    wrongBuffer = await fetchAndDecode('wrong.wav').catch(()=>null);
+    if (!correctBuffer || !wrongBuffer) {
+      audioCtx = null;
+      initAudioFallback();
+    }
+  } catch(e) {
+    console.warn('WebAudio 初期化失敗: フォールバックへ', e);
+    audioCtx = null;
+    initAudioFallback();
+  }
+}
+
+function initAudioFallback() {
+  if (audioFallbackPool) return;
+  const createPool = (src, count = 4) => {
+    const pool = [];
+    for (let i = 0; i < count; i++) {
+      const a = new Audio(src);
+      a.preload = 'auto';
+      pool.push(a);
+    }
+    let idx = 0;
+    return {
+      play() {
+        const a = pool[idx];
+        idx = (idx + 1) % pool.length;
+        try { a.currentTime = 0; } catch(e) {}
+        a.play().catch(()=>{/* ignore */});
+      }
+    };
+  };
+  audioFallbackPool = {
+    correct: createPool('correct.wav', 4),
+    wrong: createPool('wrong.wav', 4)
+  };
+}
+
+function playSoundBuffer(type, rate = 1.0) {
+  // type: 'correct' or 'wrong'
+  if (audioCtx && (type === 'correct' ? correctBuffer : wrongBuffer)) {
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const src = audioCtx.createBufferSource();
+    src.buffer = (type === 'correct') ? correctBuffer : wrongBuffer;
+    src.playbackRate.value = rate;
+    src.connect(audioCtx.destination);
+    src.start(0);
+  } else if (audioFallbackPool) {
+    if (type === 'correct') audioFallbackPool.correct.play();
+    else audioFallbackPool.wrong.play();
+  } else {
+    const el = document.getElementById(type === 'correct' ? 'correctSound' : 'wrongSound');
+    if (el) {
+      try { el.currentTime = 0; } catch(e) {}
+      el.play().catch(()=>{/* ignore */});
+    }
+  }
+}
+
+/* ------------------ 3) 設定保存 / 復元(localStorage) ------------------ */
+function saveSettings(){
+  try {
+    const data = {
+      rangeStart: rangeStart.value,
+      rangeEnd: rangeEnd.value,
+      timeInput: timeInput.value,
+      choiceCount: choiceCountSelect.value
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch(e) {
+    console.warn('設定の保存に失敗:', e);
+  }
+}
+
+function loadSettings(){
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return;
+    const data = JSON.parse(raw);
+    if(data.rangeStart) rangeStart.value = data.rangeStart;
+    if(data.rangeEnd) rangeEnd.value = data.rangeEnd;
+    if(data.timeInput) timeInput.value = data.timeInput;
+    if(data.choiceCount) choiceCountSelect.value = data.choiceCount;
+    clampRange();
+    updateTimeByRange();
+  } catch(e){
+    console.warn('設定の読み込みに失敗:', e);
+  }
+}
+
+/* 保存トリガー */
+rangeStart.addEventListener('change', () => { clampRange(); updateTimeByRange(); saveSettings(); });
+rangeEnd.addEventListener('change', () => { clampRange(); updateTimeByRange(); saveSettings(); });
+timeInput.addEventListener('change', () => { saveSettings(); });
+choiceCountSelect.addEventListener('change', () => { saveSettings(); });
+
+/* ------------------ 4) イベント委譲: choicesDiv に１つだけクリックハンドラをつける ------------------ */
+choicesDiv.addEventListener('click', (e) => {
+  const btn = e.target.closest('.choiceBtn');
+  if(!btn || !choicesDiv.contains(btn)) return;
+  if(!canSelect) return;
+  const selected = btn.textContent;
+  const correct = btn.dataset.correct || '';
+  selectChoice(btn, selected, correct);
+});
+
+/* ------------------ 既存ユーティリティ (clamp/update) ------------------ */
 function clampRange() {
   let start = parseInt(rangeStart.value)||1;
   let end = parseInt(rangeEnd.value)||1;
@@ -248,38 +372,7 @@ function updateTimeByRange(){
   timeInput.value=Math.ceil(count*2);
 }
 
-startBtn.addEventListener('click',()=>{
-  const start=parseInt(rangeStart.value)||1;
-  const end=parseInt(rangeEnd.value)||wordPairs.length;
-  if(start<1||end>wordPairs.length||start>end){ alert("範囲指定が不正です"); return; }
-  quizList=wordPairs.slice(start-1,end);
-  quizList.sort(()=>Math.random()-0.5);
-  totalQuestions=quizList.length;
-  correctCount=0; incorrectCount=0; currentIndex=0; canSelect=true;
-  missList=[];
-
-  quizArea.classList.remove('hidden'); summaryDiv.classList.add('hidden');
-  Array.from(controls.querySelectorAll("input,select,button")).forEach(el=>el.disabled=true);
-
-  document.getElementById("quizLink").classList.add("disabled");
-
-  let inputTime = parseInt(timeInput.value) || 1;
-  if(inputTime < 1) inputTime = 1;
-  if(inputTime > 99999) inputTime = 99999;
-  timeInput.value = inputTime;
-  globalTime = inputTime;
-
-  startTime=performance.now();
-  requestAnimationFrame(updateTimer);
-  showQuestion();
-  
-  const correctSound = document.getElementById("correctSound");
-  const wrongSound = document.getElementById("wrongSound");
-
-  correctSound.playbackRate = 1.8;
-  wrongSound.playbackRate = 1.5;
-});
-
+/* ------------------ タイマー更新 ------------------ */
 function updateTimer(timestamp){
   const elapsed=(timestamp-startTime)/1000;
   const remain=Math.max(globalTime-elapsed,0);
@@ -288,6 +381,7 @@ function updateTimer(timestamp){
   else{ animationFrameId=requestAnimationFrame(updateTimer); }
 }
 
+/* ------------------ 問題表示 ------------------ */
 function showQuestion(){
   if(currentIndex>=quizList.length){ return showSummary(true,false); }
   canSelect=true;
@@ -297,23 +391,28 @@ function showQuestion(){
 
   let choices=[item.japanese];
   const totalChoices=parseInt(choiceCountSelect.value);
-  let dummies=[...item.dummy]; dummies.sort(()=>Math.random()-0.5);
+  let dummies=[...item.dummy];
+  shuffleArray(dummies);
   while(choices.length<totalChoices && dummies.length>0){ choices.push(dummies.pop()); }
-  choices.sort(()=>Math.random()-0.5);
+  shuffleArray(choices);
 
   choicesDiv.innerHTML="";
+  const frag = document.createDocumentFragment();
   choices.forEach(ch=>{
     const btn=document.createElement('button');
     btn.className="choiceBtn";
+    btn.type = 'button';
     btn.textContent=ch;
-    btn.addEventListener('mousedown',()=>selectChoice(btn,ch,item.japanese));
-    btn.addEventListener('touchstart',(e)=>{e.preventDefault(); selectChoice(btn,ch,item.japanese);},{passive:false});
-    choicesDiv.appendChild(btn);
+    // 正解判定のための data 属性
+    btn.dataset.correct = item.japanese;
+    frag.appendChild(btn);
   });
+  choicesDiv.appendChild(frag);
 }
 
 function getRemainingTime(){ return Math.max(globalTime-(performance.now()-startTime)/1000,0); }
 
+/* ------------------ 回答選択処理 ------------------ */
 function selectChoice(btn, selected, correct){
   if(!canSelect) return;
   canSelect = false;
@@ -321,13 +420,11 @@ function selectChoice(btn, selected, correct){
   const buttons = document.querySelectorAll(".choiceBtn");
   buttons.forEach(b => b.disabled = true);
 
-  const correctSound = document.getElementById("correctSound");
-  const wrongSound = document.getElementById("wrongSound");
-
   if(selected === correct){
     btn.classList.add("correct");
     correctCount++;
-    playSound(correctSound);
+    // 低レイテンシで再生
+    playSoundBuffer('correct', 1);
 
     setTimeout(() => { 
       currentIndex++; 
@@ -346,7 +443,7 @@ function selectChoice(btn, selected, correct){
       missList.push({english: currentWord.english, japanese: currentWord.japanese});
     }
 
-    playSound(wrongSound);
+    playSoundBuffer('wrong', 1.5);
 
     setTimeout(() => { 
       currentIndex++; 
@@ -355,6 +452,7 @@ function selectChoice(btn, selected, correct){
   }
 }
 
+/* ------------------ 終了サマリー ------------------ */
 function showSummary(cleared=false,timeOut=false){
   if(animationFrameId) cancelAnimationFrame(animationFrameId);
   quizArea.classList.add('hidden'); summaryDiv.classList.remove('hidden');
@@ -402,6 +500,48 @@ function showSummary(cleared=false,timeOut=false){
   summaryDiv.innerHTML=cardHTML;
 }
 
+/* ------------------ 開始処理: Audio 初期化 + シャッフル置換 ------------------ */
+startBtn.addEventListener('click', async ()=>{
+  // ユーザー操作で AudioContext を作る（iOS 対策）
+  try {
+    await initAudioAssets();
+    if (audioCtx && audioCtx.state === 'suspended') await audioCtx.resume();
+  } catch(e){ /* 初期化失敗でも先に進む */ }
+
+  const start=parseInt(rangeStart.value)||1;
+  const end=parseInt(rangeEnd.value)||wordPairs.length;
+  if(start<1||end>wordPairs.length||start>end){ alert("範囲指定が不正です"); return; }
+  quizList=wordPairs.slice(start-1,end);
+
+  // ここを sort -> shuffle に変更
+  shuffleArray(quizList);
+
+  totalQuestions=quizList.length;
+  correctCount=0; incorrectCount=0; currentIndex=0; canSelect=true;
+  missList=[];
+
+  quizArea.classList.remove('hidden'); summaryDiv.classList.add('hidden');
+  Array.from(controls.querySelectorAll("input,select,button")).forEach(el=>el.disabled=true);
+
+  document.getElementById("quizLink").classList.add("disabled");
+
+  let inputTime = parseInt(timeInput.value) || 1;
+  if(inputTime < 1) inputTime = 1;
+  if(inputTime > 99999) inputTime = 99999;
+  timeInput.value = inputTime;
+  globalTime = inputTime;
+
+  startTime=performance.now();
+  requestAnimationFrame(updateTimer);
+  showQuestion();
+});
+
+/* ------------------ ページロード時に設定を復元 ------------------ */
+document.addEventListener('DOMContentLoaded', () => {
+  loadSettings();
+});
+
+/* ------------------ 重要: wordPairs データ ------------------ */
 const wordPairs = [
   {english:"follow", ruby:"フ'ォロー", japanese:"に続く,に従う", dummy:['飢饉', '内気な', '財布', '資金', 'を表現する', '価値', '通路', '起業家', '否定の', '政府', '精力的な', 'を信用する', '利点', '義務的な', '神経細胞', '例', '重大な', '告白する', '職員', '一般市民の', '推量する', '美徳', '優先', '死亡', '農園', 'はけ口', 'を移す', 'を調査する', '相当するもの', '地位', 'ちっちゃな', 'からの', '密度', '傑作', '安定した', '環境保護', '暗唱する', 'を断る', 'を守る', '方程式', '階級制度', '浸る', 'はっきりと', '用心', '精神の', '備えつける', '10年', '消す', 'しぼる', '話', '憲法', '栄光', '地域', '議定書', '炎症', 'イスラム教の', '急増', '生き返らせる', '伝説', '逃げる', '洞察', 'を無視する', '粒子', '反応する', '勇気', '家庭', '統計(学)', 'を困らせる', 'を吸収する', '控える', '気性', '神父', 'を禁止する', '範囲', '形', '期間', 'かなり', '正確な', '離婚', '傷', '工業', 'を結合させる', 'を発表する', '急速な', '大声で叫ぶ', '悪', '部下', 'を脅迫する', 'すばらしい', '推測する', 'を増やす', '下水', 'をおびえさせる', 'を受け継ぐ', '重役', '抗議', '典型的な', '突然変異', '適度な', '共感']},
   {english:"consider", ruby:"コンシ'ダー", japanese:"を考慮する", dummy:['主題,テーマ', '衣服,衣類', '無数の', '運動選手', '花', '豊富に', '驚くべき', '基本的な', '借金', '同意', '城', '仲間', '宇宙', '適切な', '気前のよい', '4分の1', '外交の', '新陳代謝', '古代の', '暇', '外来の', '大気,雰囲気', '影響,衝撃', 'ほとんど', 'おかしな', '傑作', '全', 'くず,がらくた', '中身,いっぱいの', '元から伴う', '犯罪', '公共事業', '沈む', '保険', '対立', '巨大な', 'とりつく', '気楽な', '料理', '合成の', '最新の', '差別', '攻撃的な', '大見出し', '残念な', '情熱', '牧草地', '用語,期間', '部分', '気候', '診断', '契約', '笑い', 'ごみ', '湾', '漠然とした', '類人猿', '利己的な', 'はけ口', '財政的な', 'だが一方', '犠牲者', '強力な', '生の', '食欲', '荒野', '筋', '家具', '絶滅', '剣', '類似の', '競争,人種', '生息地', '糸', '先天的な', '世代', '名高い', '証拠', '欠陥', '摩擦', '楽観的な', '苦しみ,苦難', '典型的な', 'みにくい', '深刻な', '冒険的事業', 'つもりだ', '上級の,先輩の', '存在', 'ピシャリと打つ', '構造', '１年の', '地理', '主観的な', '広告', '良心', '悲しみ', '程度,学位', 'こづかい', '密度']},
