@@ -48,7 +48,7 @@ h1 a.disabled {
   padding:10px 20px; 
   border-radius:8px; 
   background:#4dabf7; 
-  background:rgb(247, 77, 77); 
+  /* background:rgb(247, 77, 77);  */
   color:#fff; 
   border:none; 
   cursor:pointer; 
@@ -443,7 +443,7 @@ function selectChoice(btn, selected, correct){
       missList.push({english: currentWord.english, japanese: currentWord.japanese});
     }
 
-    playSoundBuffer('wrong', 1.5);
+    playSoundBuffer('wrong', 5);
 
     setTimeout(() => { 
       currentIndex++; 
