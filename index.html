@@ -48,7 +48,6 @@ h1 a.disabled {
   padding:10px 20px; 
   border-radius:8px; 
   background:#4dabf7; 
-  background:rgb(47, 77, 77); 
   color:#fff; 
   border:none; 
   cursor:pointer; 
@@ -356,12 +355,14 @@ minus100.addEventListener('click',()=>{
   rangeEnd.value = parseInt(rangeEnd.value)-100;
   clampRange();
   updateTimeByRange();
+  saveSettings();
 });
 plus100.addEventListener('click',()=>{
   rangeStart.value = parseInt(rangeStart.value)+100;
   rangeEnd.value = parseInt(rangeEnd.value)+100;
   clampRange();
   updateTimeByRange();
+  saveSettings();
 });
 
 function updateTimeByRange(){
