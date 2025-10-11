@@ -10,7 +10,7 @@ body {
   padding: 20px; 
   background: #f5f5f5; 
   color:#111; 
-  touch-action: manipulation; /* iPhoneダブルタップズーム防止 */
+  touch-action: manipulation;
 }
 .container { 
   max-width: 900px; 
@@ -357,6 +357,7 @@ minus100.addEventListener('click',()=>{
   updateTimeByRange();
   saveSettings();
 });
+
 plus100.addEventListener('click',()=>{
   rangeStart.value = parseInt(rangeStart.value)+100;
   rangeEnd.value = parseInt(rangeEnd.value)+100;
@@ -388,6 +389,7 @@ function showQuestion(){
   canSelect=true;
   const item=quizList[currentIndex];
   englishWordDiv.innerHTML=`<ruby>${item.english}<rt>${item.ruby}</rt></ruby>`;
+  playWordAudio(currentIndex);
   globalTimerDiv.textContent=`正解数: ${correctCount}/${totalQuestions}問       時間: ${getRemainingTime().toFixed(2)}`;
 
   let choices=[item.japanese];
@@ -506,6 +508,7 @@ startBtn.addEventListener('click', async ()=>{
   // ユーザー操作で AudioContext を作る（iOS 対策）
   try {
     await initAudioAssets();
+    await initWordAudio();
     if (audioCtx && audioCtx.state === 'suspended') await audioCtx.resume();
   } catch(e){ /* 初期化失敗でも先に進む */ }
 
@@ -541,6 +544,38 @@ startBtn.addEventListener('click', async ()=>{
 document.addEventListener('DOMContentLoaded', () => {
   loadSettings();
 });
+
+/* ------------------ 英単語 mp3 再生 ------------------ */
+let wordAudioCtx = null;
+let wordBuffer = null;
+
+/* mp3 読み込み */
+async function initWordAudio() {
+  if (wordAudioCtx) return;
+  try {
+    wordAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const res = await fetch('words.mp3');  // mp3ファイル名をここに
+    const ab = await res.arrayBuffer();
+    wordBuffer = await wordAudioCtx.decodeAudioData(ab);
+  } catch (e) {
+    console.warn('英単語音声の読み込み失敗:', e);
+  }
+}
+
+/* n番目(0始まり)の単語を再生 */
+function playWordAudio(index) {
+  if (!wordAudioCtx || !wordBuffer) return;
+  if (wordAudioCtx.state === 'suspended') wordAudioCtx.resume();
+  const src = wordAudioCtx.createBufferSource();
+  src.buffer = wordBuffer;
+  src.connect(wordAudioCtx.destination);
+
+  const startTime = index * 3;       // 3秒間隔
+  const duration = 3;                // 再生時間3秒
+  if (startTime < wordBuffer.duration) {
+    src.start(0, startTime, Math.min(duration, wordBuffer.duration - startTime));
+  }
+}
 
 /* ------------------ 重要: wordPairs データ ------------------ */
 const wordPairs = [
