@@ -389,7 +389,7 @@ function showQuestion(){
   canSelect=true;
   const item=quizList[currentIndex];
   englishWordDiv.innerHTML=`<ruby>${item.english}<rt>${item.ruby}</rt></ruby>`;
-  playWordAudio(currentIndex);
+  playWordAudio(item.index);
   globalTimerDiv.textContent=`正解数: ${correctCount}/${totalQuestions}問       時間: ${getRemainingTime().toFixed(2)}`;
 
   let choices=[item.japanese];
@@ -559,19 +559,23 @@ function initWordAudio() {
 /* n番目(0始まり)の単語を再生 */
 function playWordAudio(index) {
   if (!wordAudio) return;
-  const start = index * 3;   // 3秒間隔
-  const duration = 3;        // 各単語の再生時間
+
+  // 各単語は3秒間隔で配置されており、最後の0.01秒は次単語への余白とする
+  const start = index * 3;       // 例: 200番目(0始まり)なら 600秒
+  const end = start + 2.99;      // 602.99秒まで再生
+  const duration = end - start;  // 約2.99秒
 
   try {
-    // 再生を一旦停止して位置を設定
     wordAudio.pause();
     wordAudio.currentTime = start;
     wordAudio.play().catch(()=>{});
-    
-    // duration秒後に停止
+
     clearTimeout(wordAudio._stopTimer);
     wordAudio._stopTimer = setTimeout(() => {
-      try { wordAudio.pause(); } catch(e){}
+      try {
+        // 2.99秒後に停止
+        wordAudio.pause();
+      } catch(e){}
     }, duration * 1000);
   } catch (e) {
     console.warn('wordAudio 再生エラー:', e);
@@ -2682,6 +2686,7 @@ const wordPairs = [
   {english:"due", ruby:"デ'ュー", japanese:"〜のせいで,～予定の,当然の", dummy:['溶解する', '量', '復讐', 'もがく', '講義', 'がたがた鳴らす', 'を取り囲む', '医者', '憎しみ', '体重', '記憶', 'こする', 'ぶらつく', 'を祝う', 'ちらり', 'を登録する', '祖先', 'さわやかな', '性別', 'うまく対処する', '通勤する', '灌漑', '与える', '物', '巣', '非難する', 'を理解する', '悲しみ', '軽蔑', '生理的な', '凍りつく', '人口', '気質', 'に取って代わる', '分類する', '利己的な', '双子', '瀬戸際', '憲法', 'に侵入する', '利用する', '主観的な', '先駆者', '愛国的な', 'を断る', '孤独な', '主要な', '政治的な', '賛成する', '貨物', '状況', '共感', '預言者', 'をうらやむ', '暇', '明らかな', 'を規制する', '顕著な', 'を得る', '固執する', 'を強調する', '熱帯', '独創的な', '離婚', '忠実な', 'を雇う', '企業', '自主性', 'を購入する', 'さび', '曲', '明白な', 'かすかな', '赤道', 'まゆをひそめる', '突っ込む', '不足', '固く守る', '複雑な', '器具', '散文', '吸う', '嘆願する', '願望', '崩壊する', '軌道', '発音する', '条約', '先', '運動選手', '期間', '勇敢な', 'しばしば', '環境保護', 'ガン', 'メールを送る', '評判', '飲み物', 'まっただ中', 'を引きつける']},
 // ADD WORDS
 ];
+wordPairs.forEach((w, i) => w.index = i);
 
 </script>
 </body>
