@@ -545,35 +545,36 @@ document.addEventListener('DOMContentLoaded', () => {
   loadSettings();
 });
 
-/* ------------------ 英単語 mp3 再生 ------------------ */
-let wordAudioCtx = null;
-let wordBuffer = null;
+/* ------------------ 英単語 mp3 再生（安定版・Safari対応） ------------------ */
+let wordAudio = null;
 
-/* mp3 読み込み */
-async function initWordAudio() {
-  if (wordAudioCtx) return;
-  try {
-    wordAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const res = await fetch('words.mp3');  // mp3ファイル名をここに
-    const ab = await res.arrayBuffer();
-    wordBuffer = await wordAudioCtx.decodeAudioData(ab);
-  } catch (e) {
-    console.warn('英単語音声の読み込み失敗:', e);
-  }
+function initWordAudio() {
+  if (wordAudio) return;
+  wordAudio = new Audio('words.mp3'); // ファイル名は実際のものに合わせて変更
+  wordAudio.preload = 'auto';
+  wordAudio.crossOrigin = "anonymous"; // 必要なら
+  wordAudio.volume = 1.0;
 }
 
 /* n番目(0始まり)の単語を再生 */
 function playWordAudio(index) {
-  if (!wordAudioCtx || !wordBuffer) return;
-  if (wordAudioCtx.state === 'suspended') wordAudioCtx.resume();
-  const src = wordAudioCtx.createBufferSource();
-  src.buffer = wordBuffer;
-  src.connect(wordAudioCtx.destination);
+  if (!wordAudio) return;
+  const start = index * 3;   // 3秒間隔
+  const duration = 3;        // 各単語の再生時間
 
-  const startTime = index * 3;       // 3秒間隔
-  const duration = 3;                // 再生時間3秒
-  if (startTime < wordBuffer.duration) {
-    src.start(0, startTime, Math.min(duration, wordBuffer.duration - startTime));
+  try {
+    // 再生を一旦停止して位置を設定
+    wordAudio.pause();
+    wordAudio.currentTime = start;
+    wordAudio.play().catch(()=>{});
+    
+    // duration秒後に停止
+    clearTimeout(wordAudio._stopTimer);
+    wordAudio._stopTimer = setTimeout(() => {
+      try { wordAudio.pause(); } catch(e){}
+    }, duration * 1000);
+  } catch (e) {
+    console.warn('wordAudio 再生エラー:', e);
   }
 }
 
