@@ -517,7 +517,6 @@ startBtn.addEventListener('click', async ()=>{
   if(start<1||end>wordPairs.length||start>end){ alert("範囲指定が不正です"); return; }
   quizList=wordPairs.slice(start-1,end);
 
-  // ここを sort -> shuffle に変更
   shuffleArray(quizList);
 
   totalQuestions=quizList.length;
@@ -550,20 +549,18 @@ let wordAudio = null;
 
 function initWordAudio() {
   if (wordAudio) return;
-  wordAudio = new Audio('words.mp3'); // ファイル名は実際のものに合わせて変更
+  wordAudio = new Audio('words.mp3');
   wordAudio.preload = 'auto';
-  wordAudio.crossOrigin = "anonymous"; // 必要なら
+  wordAudio.crossOrigin = "anonymous";
   wordAudio.volume = 1.0;
 }
 
-/* n番目(0始まり)の単語を再生 */
 function playWordAudio(index) {
   if (!wordAudio) return;
 
-  // 各単語は3秒間隔で配置されており、最後の0.01秒は次単語への余白とする
-  const start = index * 3;       // 例: 200番目(0始まり)なら 600秒
-  const end = start + 2.99;      // 602.99秒まで再生
-  const duration = end - start;  // 約2.99秒
+  const start = index * 3 +0.2;
+  const end   = start + 3 +0.2;
+  const duration = end - start;
 
   try {
     wordAudio.pause();
@@ -573,7 +570,6 @@ function playWordAudio(index) {
     clearTimeout(wordAudio._stopTimer);
     wordAudio._stopTimer = setTimeout(() => {
       try {
-        // 2.99秒後に停止
         wordAudio.pause();
       } catch(e){}
     }, duration * 1000);
