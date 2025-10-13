@@ -5,138 +5,177 @@
 <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
 <title>英単語テスト</title>
 <style>
-body { 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; 
-  padding: 20px; 
-  background: #f5f5f5; 
-  color:#111; 
+*{
+  padding:0px;
+  margin:0px;
+  /* font-size:100%; */
+  /* font-weight:normal; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+input{
+  padding:2px 3px;
+}
+body{
+  background: #f5f5f5;
   touch-action: manipulation;
 }
-.container { 
-  max-width: 900px; 
-  margin: 0 auto; 
-  background: rgba(255,255,255,0.95); 
-  padding:20px; 
-  box-shadow:0 8px 24px rgba(0,0,0,0.15); 
-  border-radius:12px; 
+.container{
+  width:84%;
+  margin:4%;
+  padding:4%;
+  background: rgba(255,255,255,0.95);
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
 }
-h1 { margin-top:0; text-align:center; }
-h1 a {
-  color: #111; 
+h1{
+  margin-bottom:6%;
+  text-align:center;
+}
+h1 a:visited{
+  color:#111;
   text-decoration: none;
 }
-h1 a.disabled {
+h1 a.disabled{
   pointer-events: none;
-  color: #111;
 }
-.controls { 
-  margin-bottom: 18px; 
-  display:flex; 
-  gap:10px; 
-  flex-wrap:wrap; 
-  align-items:center; 
+.controls{
+  margin-bottom:4%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
   justify-content:center;
 }
+.controls label,div{
+  margin-bottom:1%;
+}
 #minus100, #plus100{
-  /* font-size:1rem; */
   font-family: 'Roboto Mono', 'Noto Mono', monospace;
   padding:5px 15px;
   border-radius: 15px;
 }
-#startBtn { 
-  font-size:1.2rem; 
-  padding:10px 20px; 
-  border-radius:8px; 
-  background:#4dabf7; 
-  color:#fff; 
-  border:none; 
-  cursor:pointer; 
+#startBtn{
+  font-size:1.2rem;
+  color:#fff;
+  text-align:center;
+  width:100%;
+  padding:2%;
+  margin-top:3%;
+  border-radius:8px;
+  background:#4dabf7;
+  border:none;
   transition: transform 0.1s, background 0.1s;
 }
-#startBtn:active { transform: translateY(1px); }
-.word {
-  font-size: 2.2rem; 
-  margin: 20px 0; 
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  text-align: center;
+#startBtn:active{transform:translateY(1px);}
+.word{
+  font-size:2.5rem;
+  text-align:center;
+  margin:4% 0;
+  padding:4%;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
 }
-.choices { display:flex; flex-direction:column; gap:12px; margin-bottom:12px; }
-.choiceBtn { 
-  padding:14px; font-size:1.1rem; cursor:pointer; border:none; 
-  background:#f0f0f0; border-radius:10px; 
-  transition: transform 0.1s, background 0.1s, box-shadow 0.3s; 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align:left;
+rt{
+  font-size:0.75rem;
+  font-family:"Nato Sans Medium";
+  color:gray;
+  text-align:center;
+  transform:translateY(50%);
 }
-.choiceBtn:active { transform: translateY(1px); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
-.correct { background:#4dabf7 !important; color:#fff; }
-.wrong { background:#ff6b6b !important; color:#fff; }
-#quizArea {
-  text-align: center;
+.choices{
+  display:flex;
+  flex-direction:column;
 }
-.timer { 
-  font-size:1rem;
-  font-weight:bold; 
-  margin: 0px auto;
+.choiceBtn{
+  font-size:1.3rem;
+  text-align:left;
+  padding:4%;
+  margin-bottom:4%;
+  background:#f0f0f0;
+  border-radius:10px;
+  border:none;
+  transition: transform 0.1s, background 0.1s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+}
+.choiceBtn:active{
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.correct{
+  background:#4dabf7;
+  color:#fff;
+}
+.wrong{
+  background:#ff6b6b;
+  color:#fff;
+}
+#quizArea{text-align:center;}
+.timer{
+  font-family:'Roboto Mono','Noto Mono',monospace;
+  font-weight:bold;
+  color:#fff;
+  text-align:center;
+  white-space:nowrap;
   display:inline-block;
-  background:#272727; 
-  color:#fff; 
-  padding:6px 12px;
-  border-radius:20px; 
-  box-shadow:0 4px 10px rgba(0,0,0,0.2); 
-  text-align:center; 
-  font-family: 'Roboto Mono', 'Noto Mono', monospace;
-  white-space: nowrap;
+  margin:0 auto;
+  padding:1% 5%;
+  min-width:80%;
+  background:#272727;
+  border-radius:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
-.hidden { display:none; }
-#summary { text-align:center; font-family:sans-serif; }
-#summary h2 { font-size:2rem; margin-bottom:15px; }
-.summary-card {
-  display:inline-block;
-  padding:20px 30px;
+.hidden{display:none;}
+#summary h2{
+  font-size:2rem;
+  text-align:center;
+  margin-bottom:3%;
+}
+.summary-card{
+  width:94%;
+  margin:0 auto;
+  padding:4% 0;
   background:#fff;
   border-radius:12px;
   box-shadow:0 10px 30px rgba(0,0,0,0.15);
-  min-width:300px;
 }
-.result-row { 
-  display:flex; justify-content:center; margin:5px 0; font-size:1.2rem; 
+.result-list{
+  display: table;
+  width: auto;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
 }
-.result-label { width:40%; text-align:right; padding-right:5px; }
-.result-value { width:35%; text-align:right; margin-right:25%; }
+.result-list li{
+  display: table-row;
+}
+.result-label,.result-value{
+  display: table-cell;
+  padding: 4px;
+  text-align:right;
+  white-space:nowrap;
+}
 .range-buttons {
   display: inline-flex;
   gap: 4px;
 }
 .range-buttons button {
-  padding: 4px 8px;
-  border: none;
-  border-radius: 6px;
   background: #ddd;
-  cursor: pointer;
+  border-radius: 6px;
+  border: none;
 }
 .range-buttons button:active {
   background: #bbb;
-}
-rt{font-size:0.75rem; font-family:"Nato Sans Medium"; color:gray; text-align:center; margin:0px; position:relative; top:0px;}
-@media (max-width: 600px) {
-  .choiceBtn { font-size: 1.3rem; padding:16px; }
-  .word { font-size: 2.5rem; padding:24px; }
-  .controls { flex-direction:column; align-items:center; }
-  #startBtn { width:100%; text-align:center; }
 }
 </style>
 </head>
 <body>
 <div class="container">
   <h1>
-    <a id="quizLink" href="https://stakdst.github.io/TEST/高校_CHECK.pdf">英単語クイズ</a>
+    <a id="quizLink" href="https://stakdst.github.io/TEST/高校_CHECK.pdf" target="_blank">英単語クイズ</a>
   </h1>
   <div class="controls" id="controls">
-    <label>範囲: 
-      <input id="rangeStart" type="number" min="1" value="1" style="width:50px"> 〜 
+    <label>範囲:
+      <input id="rangeStart" type="number" min="1" value="1" style="width:50px"> 〜
       <input id="rangeEnd" type="number" min="1" value="100" style="width:50px">
       <span>　</span>
       <span class="range-buttons">
@@ -380,7 +419,7 @@ function updateTimeByRange(){
 function updateTimer(timestamp){
   const elapsed=(timestamp-startTime)/1000;
   const remain=Math.max(globalTime-elapsed,0);
-  globalTimerDiv.textContent=`正解数: ${correctCount}/${totalQuestions}問       時間: ${remain.toFixed(2)}`;
+  globalTimerDiv.textContent=`正解数: ${correctCount}/${totalQuestions}問　時間: ${remain.toFixed(2)}`;
   if(remain<=0){ showSummary(false,true); }
   else{ animationFrameId=requestAnimationFrame(updateTimer); }
 }
@@ -392,7 +431,7 @@ function showQuestion(){
   const item=quizList[currentIndex];
   englishWordDiv.innerHTML=`<ruby>${item.english}<rt>${item.ruby}</rt></ruby>`;
   playWordAudio(item.index);
-  globalTimerDiv.textContent=`正解数: ${correctCount}/${totalQuestions}問       時間: ${getRemainingTime().toFixed(2)}`;
+  globalTimerDiv.textContent=`正解数: ${correctCount}/${totalQuestions}問　時間: ${getRemainingTime().toFixed(2)}`;
 
   let choices=[item.japanese];
   const totalChoices=parseInt(choiceCountSelect.value);
@@ -431,14 +470,14 @@ function selectChoice(btn, selected, correct){
     // 低レイテンシで再生
     playSoundBuffer('correct', 1);
 
-    setTimeout(() => { 
-      currentIndex++; 
-      showQuestion(); 
+    setTimeout(() => {
+      currentIndex++;
+      showQuestion();
     }, 500);
 
   } else {
-    buttons.forEach(b => { 
-      if(b.textContent === correct) b.classList.add("wrong"); 
+    buttons.forEach(b => {
+      if(b.textContent === correct) b.classList.add("wrong");
     });
     quizList.push(quizList[currentIndex]);
     incorrectCount++;
@@ -450,9 +489,9 @@ function selectChoice(btn, selected, correct){
 
     playSoundBuffer('wrong', 1);
 
-    setTimeout(() => { 
-      currentIndex++; 
-      showQuestion(); 
+    setTimeout(() => {
+      currentIndex++;
+      showQuestion();
     }, 800);
   }
 }
@@ -465,16 +504,19 @@ function showSummary(cleared=false,timeOut=false){
 
   document.getElementById("quizLink").classList.remove("disabled");
 
-  let remainingQuestions = totalQuestions - correctCount; 
+  let remainingQuestions = totalQuestions - correctCount;
 
   let cardHTML='';
   if(timeOut){
-    cardHTML=`<div class="summary-card">
-      <h2>GameOver !</h2>
-      <div class="result-row"><span class="result-label">正解数</span><span class="result-value">${correctCount}/${totalQuestions}問</span></div>
-      <div class="result-row"><span class="result-label">あと</span><span class="result-value">${remainingQuestions}問</span></div>
-      <div class="result-row"><span class="result-label">Miss</span><span class="result-value">${incorrectCount}回</span></div>
-    </div>`;
+    cardHTML=`
+      <div class="summary-card"> 
+        <h2>Game Over !</h2>
+        <ul class="result-list">
+          <li><span class="result-label">正解数　</span><span class="result-value">${correctCount}/${totalQuestions}問</span></li>
+          <li><span class="result-label">あと　</span><span class="result-value">${remainingQuestions}問</span></li>
+          <li><span class="result-label">Miss　</span><span class="result-value">${incorrectCount}回</span></li>
+        </ul>
+      </div>`;
 
     if(missList.length > 0){
       cardHTML += `<div style="text-align:left;">
@@ -486,12 +528,15 @@ function showSummary(cleared=false,timeOut=false){
     }
   }else{
     const elapsedTime=((performance.now()-startTime)/1000).toFixed(2);
-    cardHTML=`<div class="summary-card">
-      <h2>CLEAR!</h2>
-      <div class="result-row"><span class="result-label">正解数</span><span class="result-value">${correctCount}問</span></div>
-      <div class="result-row"><span class="result-label">Time</span><span class="result-value">${elapsedTime}秒</span></div>
-      <div class="result-row"><span class="result-label">Miss</span><span class="result-value">${incorrectCount}回</span></div>
-    </div>`;
+    cardHTML=`
+      <div class="summary-card">
+        <h2>CLEAR !</h2>
+        <ul class="result-list">
+          <li><span class="result-label">正解数　</span><span class="result-value">${correctCount}問</span></li>
+          <li><span class="result-label">Time　</span><span class="result-value">${elapsedTime}秒</span></li>
+          <li><span class="result-label">Miss　</span><span class="result-value">${incorrectCount}回</span></li>
+        </ul>
+      </div>`;
 
     if(missList.length>0){
       cardHTML += `<div style="text-align:left;">
