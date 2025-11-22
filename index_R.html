@@ -314,22 +314,31 @@ function initAudioFallback() {
   };
 }
 
-function playSoundBuffer(type, rate = 1.0) {
+function playSoundBuffer(type, rate = 1.0, volume = 1.0) {
   // type: 'correct' or 'wrong'
   if (audioCtx && (type === 'correct' ? correctBuffer : wrongBuffer)) {
     if (audioCtx.state === 'suspended') audioCtx.resume();
     const src = audioCtx.createBufferSource();
     src.buffer = (type === 'correct') ? correctBuffer : wrongBuffer;
     src.playbackRate.value = rate;
-    src.connect(audioCtx.destination);
+    const gainNode = audioCtx.createGain();
+    gainNode.gain.value = volume;
+    src.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
     src.start(0);
   } else if (audioFallbackPool) {
-    if (type === 'correct') audioFallbackPool.correct.play();
-    else audioFallbackPool.wrong.play();
+    if (type === 'correct') {
+      audioFallbackPool.correct.volume = volume;
+      audioFallbackPool.correct.play();
+    } else {
+      audioFallbackPool.wrong.volume = volume;
+      audioFallbackPool.wrong.play();
+    }
   } else {
     const el = document.getElementById(type === 'correct' ? 'correctSound' : 'wrongSound');
     if (el) {
       try { el.currentTime = 0; } catch(e) {}
+      el.volume = volume;
       el.play().catch(()=>{/* ignore */});
     }
   }
@@ -599,6 +608,7 @@ startBtn.addEventListener('click', async ()=>{
   startTime=performance.now();
   requestAnimationFrame(updateTimer);
   showQuestion();
+  playSoundBuffer('correct',1,0);
 });
 
 /* ------------------ ページロード時に設定を復元 ------------------ */
